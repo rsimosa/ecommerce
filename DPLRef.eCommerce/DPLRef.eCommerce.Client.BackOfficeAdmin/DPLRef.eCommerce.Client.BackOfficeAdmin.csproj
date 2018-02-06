@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DPLRef.eCommerce.Client.Admin\BaseUICommand.cs" Link="BaseUICommand.cs" />
+    <Compile Include="..\DPLRef.eCommerce.Client.Admin\UICommandParameter.cs" Link="UICommandParameter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DPLRef.eCommerce.Accessors\DPLRef.eCommerce.Accessors.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Contracts\DPLRef.eCommerce.Common.Contracts.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Shared\DPLRef.eCommerce.Common.Shared.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Contracts.BackOfficeAdmin\DPLRef.eCommerce.Contracts.BackOfficeAdmin.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Engines\DPLRef.eCommerce.Engines.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Managers\DPLRef.eCommerce.Managers.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Utilities\DPLRef.eCommerce.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

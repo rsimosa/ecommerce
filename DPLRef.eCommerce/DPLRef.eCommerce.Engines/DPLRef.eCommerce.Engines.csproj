@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DPLRef.eCommerce.Accessors\DPLRef.eCommerce.Accessors.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Contracts\DPLRef.eCommerce.Common.Contracts.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Shared\DPLRef.eCommerce.Common.Shared.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Contracts.WebStore\DPLRef.eCommerce.Contracts.WebStore.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Utilities\DPLRef.eCommerce.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Contracts\DPLRef.eCommerce.Common.Contracts.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Shared\DPLRef.eCommerce.Common.Shared.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Contracts.WebStore\DPLRef.eCommerce.Contracts.WebStore.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Engines\DPLRef.eCommerce.Engines.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Tests.Mocks\DPLRef.eCommerce.Tests.Mocks.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Utilities\DPLRef.eCommerce.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ExpectedResults\EmailBody.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+﻿Order Notification Email
+==============================
+Order ID: 1
+Webstore: My Seller Name
+Status: Authorized
+Shipping Provider: UPS
+Tracking Code: 1234abcd
+==============================
+Product: My Product, Quantity: 2, Unit Price: $5.00, Extended Price: $10.00
+==============================
+Subtotal: $10.00
+Tax: $0.70
+Total: $10.70

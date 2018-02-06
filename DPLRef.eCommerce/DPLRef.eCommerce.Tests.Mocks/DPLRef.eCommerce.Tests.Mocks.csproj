@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DPLRef.eCommerce.Accessors\DPLRef.eCommerce.Accessors.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Contracts\DPLRef.eCommerce.Common.Contracts.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Shared\DPLRef.eCommerce.Common.Shared.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Contracts.WebStore\DPLRef.eCommerce.Contracts.WebStore.csproj" />
+    <ProjectReference Include="..\DPLRef.eCommerce.Engines\DPLRef.eCommerce.Engines.csproj" />
+  </ItemGroup>
+
+</Project>
