@@ -29,29 +29,31 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Common.Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Utilities", "DPLRef.eCommerce.Utilities\DPLRef.eCommerce.Utilities.csproj", "{96E3CCF0-3E12-4703-B18C-8673C148FC23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Engines", "DPLRef.eCommerce.Engines\DPLRef.eCommerce.Engines.csproj", "{FF3017C4-7714-48A0-8004-0B8C99DA12CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Engines", "DPLRef.eCommerce.Engines\DPLRef.eCommerce.Engines.csproj", "{FF3017C4-7714-48A0-8004-0B8C99DA12CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Contracts.WebStore", "DPLRef.eCommerce.Contracts.WebStore\DPLRef.eCommerce.Contracts.WebStore.csproj", "{96FEE7E5-C200-458E-9EAA-D9A1C50C0210}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Tests.EngineTests", "DPLRef.eCommerce.Tests.EngineTests\DPLRef.eCommerce.Tests.EngineTests.csproj", "{740D5AA5-68DA-4606-B4C6-02CC1E80B11D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Tests.EngineTests", "DPLRef.eCommerce.Tests.EngineTests\DPLRef.eCommerce.Tests.EngineTests.csproj", "{740D5AA5-68DA-4606-B4C6-02CC1E80B11D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Tests.Mocks", "DPLRef.eCommerce.Tests.Mocks\DPLRef.eCommerce.Tests.Mocks.csproj", "{87A0362E-A50A-4BBF-9721-3C07D5B4709F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Tests.Mocks", "DPLRef.eCommerce.Tests.Mocks\DPLRef.eCommerce.Tests.Mocks.csproj", "{87A0362E-A50A-4BBF-9721-3C07D5B4709F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Contracts.ServiceHost", "DPLRef.eCommerce.Contracts.ServiceHost\DPLRef.eCommerce.Contracts.ServiceHost.csproj", "{3643827F-F009-4933-A9AD-7D70D16B641E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Contracts.ServiceHost", "DPLRef.eCommerce.Contracts.ServiceHost\DPLRef.eCommerce.Contracts.ServiceHost.csproj", "{3643827F-F009-4933-A9AD-7D70D16B641E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Contracts.BackOfficeAdmin", "DPLRef.eCommerce.Contracts.BackOfficeAdmin\DPLRef.eCommerce.Contracts.BackOfficeAdmin.csproj", "{0FBF67B4-066C-4488-A879-BF71F32D849C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Contracts.BackOfficeAdmin", "DPLRef.eCommerce.Contracts.BackOfficeAdmin\DPLRef.eCommerce.Contracts.BackOfficeAdmin.csproj", "{0FBF67B4-066C-4488-A879-BF71F32D849C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Contracts.Admin", "DPLRef.eCommerce.Contracts.Admin\DPLRef.eCommerce.Contracts.Admin.csproj", "{BF8B16F5-F3AC-4728-86B1-AF14BA3ACA51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Contracts.Admin", "DPLRef.eCommerce.Contracts.Admin\DPLRef.eCommerce.Contracts.Admin.csproj", "{BF8B16F5-F3AC-4728-86B1-AF14BA3ACA51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Managers", "DPLRef.eCommerce.Managers\DPLRef.eCommerce.Managers.csproj", "{AAB26373-6431-40BF-AB58-5C516C673E94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Managers", "DPLRef.eCommerce.Managers\DPLRef.eCommerce.Managers.csproj", "{AAB26373-6431-40BF-AB58-5C516C673E94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Tests.ManagerTests", "DPLRef.eCommerce.Tests.ManagerTests\DPLRef.eCommerce.Tests.ManagerTests.csproj", "{52DFB76A-06A3-4F39-978C-68D4E3D2CE7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Tests.ManagerTests", "DPLRef.eCommerce.Tests.ManagerTests\DPLRef.eCommerce.Tests.ManagerTests.csproj", "{52DFB76A-06A3-4F39-978C-68D4E3D2CE7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Client.WebStore", "DPLRef.eCommerce.Client.WebStore\DPLRef.eCommerce.Client.WebStore.csproj", "{7D029751-15EF-4C49-8CDB-50D392C245B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Client.WebStore", "DPLRef.eCommerce.Client.WebStore\DPLRef.eCommerce.Client.WebStore.csproj", "{7D029751-15EF-4C49-8CDB-50D392C245B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Client.Admin", "DPLRef.eCommerce.Client.Admin\DPLRef.eCommerce.Client.Admin.csproj", "{5C2ED101-9D9D-4982-B946-6CDAAD6504F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Client.Admin", "DPLRef.eCommerce.Client.Admin\DPLRef.eCommerce.Client.Admin.csproj", "{5C2ED101-9D9D-4982-B946-6CDAAD6504F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Client.BackOfficeAdmin", "DPLRef.eCommerce.Client.BackOfficeAdmin\DPLRef.eCommerce.Client.BackOfficeAdmin.csproj", "{68BE249D-172B-4EC3-B600-2D0666291CE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Client.BackOfficeAdmin", "DPLRef.eCommerce.Client.BackOfficeAdmin\DPLRef.eCommerce.Client.BackOfficeAdmin.csproj", "{68BE249D-172B-4EC3-B600-2D0666291CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPLRef.eCommerce.Tests.IntegrationTests", "DPLRef.eCommerce.Tests.IntegrationTests\DPLRef.eCommerce.Tests.IntegrationTests.csproj", "{B42A3686-456F-4FDD-8BCB-0E5F6C221008}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,10 @@ Global
 		{68BE249D-172B-4EC3-B600-2D0666291CE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68BE249D-172B-4EC3-B600-2D0666291CE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68BE249D-172B-4EC3-B600-2D0666291CE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42A3686-456F-4FDD-8BCB-0E5F6C221008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42A3686-456F-4FDD-8BCB-0E5F6C221008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42A3686-456F-4FDD-8BCB-0E5F6C221008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42A3686-456F-4FDD-8BCB-0E5F6C221008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -149,6 +155,7 @@ Global
 		{7D029751-15EF-4C49-8CDB-50D392C245B9} = {D3311E3A-99CD-40AD-8910-3837ACD3DDB8}
 		{5C2ED101-9D9D-4982-B946-6CDAAD6504F4} = {D3311E3A-99CD-40AD-8910-3837ACD3DDB8}
 		{68BE249D-172B-4EC3-B600-2D0666291CE1} = {D3311E3A-99CD-40AD-8910-3837ACD3DDB8}
+		{B42A3686-456F-4FDD-8BCB-0E5F6C221008} = {62E77DB6-1582-40D7-83ED-7ADE72D1341B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AB22097-8445-4E3D-BCB9-646196DE2CF7}
