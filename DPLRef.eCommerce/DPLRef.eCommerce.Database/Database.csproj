@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\00001\001.CreateSellers.sql" />
+    <None Remove="Scripts\00001\002.CreateCatalogs.sql" />
+    <None Remove="Scripts\00001\003.CreateProducts.sql" />
+    <None Remove="Scripts\00001\004.CreateCarts.sql" />
+    <None Remove="Scripts\00001\005.CreateCartItems.sql" />
+    <None Remove="Scripts\00001\006.CreateOrders.sql" />
+    <None Remove="Scripts\00001\007.CreateOrderLines.sql" />
+    <None Remove="Scripts\00001\008.CreateSalesOrderTotal.sql" />
+    <None Remove="Scripts\00001\009.CreateBackendSalesTotals.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\00001\001.CreateSellers.sql" />
+    <EmbeddedResource Include="Scripts\00001\002.CreateCatalogs.sql" />
+    <EmbeddedResource Include="Scripts\00001\003.CreateProducts.sql" />
+    <EmbeddedResource Include="Scripts\00001\004.CreateCarts.sql" />
+    <EmbeddedResource Include="Scripts\00001\005.CreateCartItems.sql" />
+    <EmbeddedResource Include="Scripts\00001\006.CreateOrders.sql" />
+    <EmbeddedResource Include="Scripts\00001\007.CreateOrderLines.sql" />
+    <EmbeddedResource Include="Scripts\00001\008.CreateSalesOrderTotal.sql" />
+    <EmbeddedResource Include="Scripts\00001\009.CreateBackendSalesTotals.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup4-core" Version="4.0.0-beta0003" />
+    <PackageReference Include="dbup4-sqlserver" Version="4.0.0-beta0003" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.4.2" />
+  </ItemGroup>
+
+</Project>
