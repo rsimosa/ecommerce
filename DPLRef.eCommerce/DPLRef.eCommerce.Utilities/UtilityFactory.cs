@@ -9,6 +9,7 @@ namespace DPLRef.eCommerce.Utilities
         {
             AddType<ISecurityUtility>(typeof(SecurityUtility));
             AddType<IAddressUtility>(typeof(AddressUtility));
+            AddType<IAsyncUtility>(typeof(AsyncUtility));
         }
 
         public T CreateUtility<T>() where T : class

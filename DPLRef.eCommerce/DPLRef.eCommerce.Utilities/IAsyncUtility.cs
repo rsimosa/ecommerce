@@ -6,5 +6,7 @@ namespace DPLRef.eCommerce.Utilities
     public interface IAsyncUtility : IServiceContractBase
     {
         void SendEvent(AsyncEventTypes eventType, int eventId);
+
+        AsyncQueueItem CheckForNewItem();
     }
 }

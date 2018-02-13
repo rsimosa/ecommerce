@@ -1,10 +1,5 @@
-﻿using DPLRef.eCommerce.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DPLRef.eCommerce.Common.Contracts;
+﻿using DPLRef.eCommerce.Common.Contracts;
+using DPLRef.eCommerce.Utilities;
 
 namespace DPLRef.eCommerce.Tests.Mocks
 {
@@ -13,6 +8,11 @@ namespace DPLRef.eCommerce.Tests.Mocks
         public MockAsyncUtility(MockData data) : base(data)
         {
 
+        }
+
+        public AsyncQueueItem CheckForNewItem()
+        {
+            return null;
         }
 
         public void SendEvent(AsyncEventTypes eventType, int eventId)

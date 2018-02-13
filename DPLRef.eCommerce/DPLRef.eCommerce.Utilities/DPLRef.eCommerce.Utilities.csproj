@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1-beta3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DPLRef.eCommerce.Common.Contracts\DPLRef.eCommerce.Common.Contracts.csproj" />
     <ProjectReference Include="..\DPLRef.eCommerce.Common.Shared\DPLRef.eCommerce.Common.Shared.csproj" />
   </ItemGroup>
