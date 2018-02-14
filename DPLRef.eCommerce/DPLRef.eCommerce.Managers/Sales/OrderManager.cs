@@ -199,9 +199,7 @@ namespace DPLRef.eCommerce.Managers.Sales
         public WebStore.WebStoreOrderResponse SubmitOrder(int catalogId, PaymentInstrument paymentInstrument)
         {
             try
-            {
-                // TODO: Do I need to return order id or rely on session id for future order submissions after a failure?
-
+            {       
                 var result = new WebStore.WebStoreOrder();
 
                 // Get the shopping cart
@@ -295,8 +293,6 @@ namespace DPLRef.eCommerce.Managers.Sales
             }
             catch (Exception ex)
             {
-                // TODO: add some logic to handle appropriate actions to take based upon how far in the workflow the exception occurs
-
                 Logger.Error(ex);
 
                 return new WebStore.WebStoreOrderResponse()
