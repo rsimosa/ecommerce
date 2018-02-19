@@ -1,0 +1,10 @@
+create table Catalogs(
+  Id integer primary key not null,
+  SellerId integer not null,
+  Name text null,
+  Description text null,
+  IsApproved bit not null default 1,
+  CreatedAt datetime default current_timestamp not null,
+  UpdatedAt datetime default current_timestamp not null,
+  foreign key(SellerId) references Sellers(Id)
+)

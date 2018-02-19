@@ -44,7 +44,8 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
 
             Configuration = builder.Build();
 
-            var db = Configuration["eCommerceDatabase"];
+            //var db = Configuration["eCommerceDatabase"];
+            var db = Configuration["eCommerceDatabaseSqlite"];
 
             DbContextFactory.CreateGlobalContext();            
         }

@@ -69,9 +69,21 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            var db = Configuration["eCommerceDatabase"];
-            optionsBuilder.UseSqlServer(db);
-          
+            bool sqlserver = false;
+            string db = null;
+
+            if (sqlserver)
+            {
+                db = Configuration["eCommerceDatabase"];
+                optionsBuilder.UseSqlServer(db);
+
+            }
+            else
+            {
+                db = Configuration["eCommerceDatabaseSqlite"];
+                optionsBuilder.UseSqlite(db);
+            }
+
         }
 
         public virtual DbSet<CartItem> CartItems { get; set; }

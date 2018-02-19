@@ -15,6 +15,13 @@
     <None Remove="Scripts\00001\007.CreateOrderLines.sql" />
     <None Remove="Scripts\00001\008.CreateSalesOrderTotal.sql" />
     <None Remove="Scripts\00001\009.CreateBackendSalesTotals.sql" />
+    <None Remove="SqliteScripts\00001\001.CreateSellers.db" />
+    <None Remove="SqliteScripts\00001\002.CreateCatalogs.db" />
+    <None Remove="SqliteScripts\00001\003.CreateProducts.db" />
+    <None Remove="SqliteScripts\00001\004.CreateCarts.db" />
+    <None Remove="SqliteScripts\00001\005.CreateCartItems.db" />
+    <None Remove="SqliteScripts\00001\006.CreateOrders.db" />
+    <None Remove="SqliteScripts\00001\007.CreateOrderLines.db" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,11 +34,18 @@
     <EmbeddedResource Include="Scripts\00001\007.CreateOrderLines.sql" />
     <EmbeddedResource Include="Scripts\00001\008.CreateSalesOrderTotal.sql" />
     <EmbeddedResource Include="Scripts\00001\009.CreateBackendSalesTotals.sql" />
+    <EmbeddedResource Include="SqliteScripts\00001\001.CreateSellers.db" />
+    <EmbeddedResource Include="SqliteScripts\00001\002.CreateCatalogs.db" />
+    <EmbeddedResource Include="SqliteScripts\00001\003.CreateProducts.db" />
+    <EmbeddedResource Include="SqliteScripts\00001\004.CreateCarts.db" />
+    <EmbeddedResource Include="SqliteScripts\00001\005.CreateCartItems.db" />
+    <EmbeddedResource Include="SqliteScripts\00001\006.CreateOrders.db" />
+    <EmbeddedResource Include="SqliteScripts\00001\007.CreateOrderLines.db" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="dbup4-core" Version="4.0.0-beta0003" />
-    <PackageReference Include="dbup4-sqlserver" Version="4.0.0-beta0003" />
+    <PackageReference Include="dbup-sqlite" Version="4.0.0-beta0002" />
+    <PackageReference Include="dbup-sqlserver" Version="4.0.0-beta0002" />
     <PackageReference Include="System.Data.SqlClient" Version="4.4.2" />
   </ItemGroup>
 

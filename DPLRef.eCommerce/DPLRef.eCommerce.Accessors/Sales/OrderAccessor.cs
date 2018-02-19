@@ -102,31 +102,20 @@ namespace DPLRef.eCommerce.Accessors.Sales
         {
             SellerSalesTotal result = null;
 
-            using (var conn = new SqlConnection(DatabaseConnectionString))
+            using (var db = new EntityFramework.eCommerceDbContext())
             {
-                conn.Open();
-
-                using (var cmd = new SqlCommand("SalesTotalForSeller", conn))
-                {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("SellerId", Context.SellerId);
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            result = new SellerSalesTotal()
-                            {
-                                SellerId = (int)reader["SellerId"],
-                                SellerName = (string)reader["SellerName"],
-                                OrderCount = (int)reader["OrderCount"],
-                                OrderTotal = Convert.ToDecimal(reader["OrderTotal"])
-                            };
-                        }
-                    }
-                }
+                result = (from o in db.Orders
+                          join s in db.Sellers on o.SellerId equals s.Id
+                          where o.SellerId == Context.SellerId
+                          group o by new { o.SellerId, s.Name } into g
+                          select new SellerSalesTotal
+                          {
+                              SellerId = g.Key.SellerId,
+                              SellerName = g.Key.Name,
+                              OrderCount = g.Count(),
+                              OrderTotal = g.Sum(x => x.Total)
+                          }).FirstOrDefault();
             }
-
             return result;
         }
 
