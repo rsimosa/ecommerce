@@ -94,8 +94,9 @@ namespace DPLRef.eCommerce.Database
             }
             else
             {
-                var filePath = @"C:\Users\ckaplan\Desktop\test.db";
+                var filePath = sqliteConnectionString.Split("Data Source=")[1];
                 CleanupTablesSqlite(filePath);
+
                 var upgrader =
                      DeployChanges.To
                          .SQLiteDatabase(sqliteConnectionString)
