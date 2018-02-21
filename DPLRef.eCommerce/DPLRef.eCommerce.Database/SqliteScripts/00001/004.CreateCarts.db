@@ -1,5 +1,5 @@
 create table Carts (
-    Id unique not null primary key,
+    Id uniqueidentifier not null primary key,
     CatalogId integer not null,
     BillingFirst text null,
     BillingLast text null,
