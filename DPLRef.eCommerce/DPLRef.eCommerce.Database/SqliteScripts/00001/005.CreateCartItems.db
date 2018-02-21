@@ -1,6 +1,6 @@
 create table CartItems (
     Id integer not null primary key,
-    CartId uniqueidentifier not null,
+    CartId text not null,
     CatalogId integer not null,
     ProductId integer not null,
     Quantity integer not null,
