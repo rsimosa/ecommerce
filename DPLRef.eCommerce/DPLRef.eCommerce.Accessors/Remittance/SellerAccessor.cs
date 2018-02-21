@@ -8,7 +8,7 @@ namespace DPLRef.eCommerce.Accessors.Remittance
     {
         public Seller Find(int id)
         {
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var model = (from s in db.Sellers
                              where s.Id == id
@@ -28,7 +28,7 @@ namespace DPLRef.eCommerce.Accessors.Remittance
         public Seller Save(Seller seller)
         {
             EntityFramework.Seller model = null;
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 if (seller.Id > 0)
                 {
@@ -56,7 +56,7 @@ namespace DPLRef.eCommerce.Accessors.Remittance
 
         public void Delete(int id)
         {
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var model = (from s in db.Sellers
                              where s.Id == id

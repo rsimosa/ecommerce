@@ -20,7 +20,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
 
             EntityFramework.Order model = null;
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var isNewOrder = false;
 
@@ -75,7 +75,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             Order order = null;
             if (id > 0)
             {
-                using (var db = new EntityFramework.eCommerceDbContext())
+                using (var db = EntityFramework.DbContextFactory.Create())
                 {
                     EntityFramework.Order model = db.Orders.Find(id);
                     if (model != null)
@@ -102,7 +102,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
         {
             SellerSalesTotal result = null;
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 result = (from o in db.Orders
                           join s in db.Sellers on o.SellerId equals s.Id
@@ -123,7 +123,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
         {
             var orderList = new List<Order>();
             int[] orderIds;
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var list = from o in db.Orders where o.SellerId == Context.SellerId && o.Status == OrderStatuses.Authorized select o.Id;
                 orderIds = list.ToArray();
@@ -142,7 +142,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             if (orderId < 1) // order should never be new
                 throw new ArgumentException("Cannot pass new order");
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var model = db.Orders.Find(orderId);
 
@@ -167,7 +167,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             if (orderId < 1) // order should never be new
                 throw new ArgumentException("Cannot pass new order");
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var model = db.Orders.Find(orderId);
 

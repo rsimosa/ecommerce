@@ -38,7 +38,7 @@ namespace DPLRef.eCommerce.Accessors.Remittance
             //        }
             //    }
             //}
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var backendSalesTotalQuery = (from o in db.Orders
                                              join s in db.Sellers on o.SellerId equals s.Id
