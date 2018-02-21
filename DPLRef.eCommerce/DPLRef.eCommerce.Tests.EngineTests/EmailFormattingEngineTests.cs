@@ -33,7 +33,7 @@ namespace DPLRef.eCommerce.Tests.EngineTests
                     {
                         ProductName = "My Product",
                         Quantity = 2,
-                        UnitPrice = 5.00m,
+                        UnitPrice = 5.99m,
                         ExtendedPrice = 10.00m
                     }
                 },

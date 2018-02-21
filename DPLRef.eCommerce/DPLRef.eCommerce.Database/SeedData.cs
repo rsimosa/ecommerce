@@ -76,7 +76,7 @@ namespace DPLRef.eCommerce.Database
                 insert into Products
                     (Name, CatalogId, IsDownloadable, Price, Shippingweight, IsAvailable, Summary, Detail, SupplierName)
                 values
-                    (@name, @catalogid, @isdownloadable, 5, 1.0, @isavailable, 'TEST_PRODUCT summary', 'TEST_PRODUCT detail', 'TEST_PRODUCT supplier name') 
+                    (@name, @catalogid, @isdownloadable, 5.99, 1.25, @isavailable, 'TEST_PRODUCT summary', 'TEST_PRODUCT detail', 'TEST_PRODUCT supplier name') 
 
                 select scope_identity()
             ";
