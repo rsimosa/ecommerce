@@ -79,6 +79,10 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
             else
             {
                 connectionString = Configuration["eCommerceDatabaseSqlite"];
+
+                if (string.IsNullOrEmpty(connectionString))
+                    throw new InvalidOperationException("Connection string environment variable missing.");
+
                 optionsBuilder.UseSqlite(connectionString);
             }
         }
