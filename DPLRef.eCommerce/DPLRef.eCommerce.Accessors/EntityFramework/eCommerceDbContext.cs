@@ -53,12 +53,12 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
     internal class eCommerceDbContext : DbContext
     {
         public eCommerceDbContext()
-            :base()
+            : base()
 
         {
 
         }
-        
+
         protected IConfigurationRoot Configuration { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -69,21 +69,18 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            bool sqlserver = false;
-            string db = null;
 
-            if (sqlserver)
+
+            string connectionString = Configuration["eCommerceDatabase"];
+            if (!string.IsNullOrEmpty(connectionString))
             {
-                db = Configuration["eCommerceDatabase"];
-                optionsBuilder.UseSqlServer(db);
-
+                optionsBuilder.UseSqlServer(connectionString);
             }
             else
             {
-                db = Configuration["eCommerceDatabaseSqlite"];
-                optionsBuilder.UseSqlite(db);
+                connectionString = Configuration["eCommerceDatabaseSqlite"];
+                optionsBuilder.UseSqlite(connectionString);
             }
-
         }
 
         public virtual DbSet<CartItem> CartItems { get; set; }
