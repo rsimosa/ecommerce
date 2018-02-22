@@ -64,14 +64,23 @@ namespace DPLRef.eCommerce.Database
 
         static int Main(string[] args)
         {
+            var sqlServer = true;
             var connectionString = Environment.GetEnvironmentVariable("eCommerceDatabase");
-            var sqliteConnectionString = Environment.GetEnvironmentVariable("eCommerceDatabaseSqlite");
 
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                // Example value for eCommerceDatabaseSqlite: 
+                // Data Source=C:\Workspaces\eCommerce-Core\DPLRef.eCommerce\eCommerce.sqlite
+                connectionString = Environment.GetEnvironmentVariable("eCommerceDatabaseSqlite");
+                sqlServer = false;
 
-            bool sqlServer = false;
+                if (string.IsNullOrEmpty(connectionString))
+                    throw new InvalidOperationException("Connection string environment variable missing.");
+            }
 
 
             DatabaseUpgradeResult result = null;
+
             if (sqlServer)
             {
                 EnsureDatabase.For.SqlDatabase(connectionString);
@@ -94,12 +103,12 @@ namespace DPLRef.eCommerce.Database
             }
             else
             {
-                var filePath = sqliteConnectionString.Split("Data Source=")[1];
+                var filePath = connectionString.Split("Data Source=")[1];
                 CleanupTablesSqlite(filePath);
 
                 var upgrader =
                      DeployChanges.To
-                         .SQLiteDatabase(sqliteConnectionString)
+                         .SQLiteDatabase(connectionString)
                          .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly(), (scriptname) =>
                          {
                              if (scriptname.StartsWith("Database.SqliteScripts"))
@@ -130,7 +139,7 @@ namespace DPLRef.eCommerce.Database
             }
             else
             {
-                SqliteSeedData.Add(sqliteConnectionString);
+                SqliteSeedData.Add(connectionString);
             }
 
             Console.ForegroundColor = ConsoleColor.Green;
