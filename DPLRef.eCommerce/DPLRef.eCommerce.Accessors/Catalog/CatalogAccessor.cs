@@ -13,7 +13,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
 
         public WebStoreCatalog Find(int catalogId)
         {
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 var catalogExtended = (from c in db.Catalogs
                                        join s in db.Sellers on c.SellerId equals s.Id
@@ -35,7 +35,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
             if (catalog.SellerId == 0)
                 catalog.SellerId = Context.SellerId;
 
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 EntityFramework.Catalog model = null;
                 if (catalog.Id > 0)
@@ -64,7 +64,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
 
         public void DeleteCatalog(int id)
         {
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 var model = db.Catalogs.Find(id);
                 if (model != null && model.SellerId == Context.SellerId) // make sure the seller context matches the model seller
@@ -82,7 +82,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
 
         public WebStoreCatalog[] FindAllSellerCatalogs()
         {
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 return db.Catalogs
                          .Where(c => c.SellerId == Context.SellerId)
@@ -93,7 +93,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
 
         public Product[] FindAllProductsForCatalog(int catalogId)
         {
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 return db.Products
                          .Where(p => p.CatalogId == catalogId)
@@ -104,7 +104,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
 
         public Product FindProduct(int id)
         {
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 return db.Products
                          .Where(p => p.Id == id)
@@ -119,7 +119,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
             if (product.CatalogId == 0)
                 product.CatalogId = catalogId;
 
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 EntityFramework.Product model = null;
                 if (product.Id > 0)
@@ -152,7 +152,7 @@ namespace DPLRef.eCommerce.Accessors.Catalog
 
         public void DeleteProduct(int catalogId, int id)
         {
-            using (var db = DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 var model = db.Products.Find(id);
                 if (model != null && model.CatalogId == catalogId) // make sure the Catalog context matches the model Catalog
