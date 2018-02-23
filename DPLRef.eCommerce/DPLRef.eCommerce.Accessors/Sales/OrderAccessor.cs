@@ -20,7 +20,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
 
             EntityFramework.Order model = null;
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var isNewOrder = false;
 
@@ -75,7 +75,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             Order order = null;
             if (id > 0)
             {
-                using (var db = new EntityFramework.eCommerceDbContext())
+                using (var db = EntityFramework.DbContextFactory.Create())
                 {
                     EntityFramework.Order model = db.Orders.Find(id);
                     if (model != null)
@@ -102,31 +102,20 @@ namespace DPLRef.eCommerce.Accessors.Sales
         {
             SellerSalesTotal result = null;
 
-            using (var conn = new SqlConnection(DatabaseConnectionString))
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
-                conn.Open();
-
-                using (var cmd = new SqlCommand("SalesTotalForSeller", conn))
-                {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("SellerId", Context.SellerId);
-
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            result = new SellerSalesTotal()
-                            {
-                                SellerId = (int)reader["SellerId"],
-                                SellerName = (string)reader["SellerName"],
-                                OrderCount = (int)reader["OrderCount"],
-                                OrderTotal = Convert.ToDecimal(reader["OrderTotal"])
-                            };
-                        }
-                    }
-                }
+                result = (from o in db.Orders
+                          join s in db.Sellers on o.SellerId equals s.Id
+                          where o.SellerId == Context.SellerId
+                          group o by new { o.SellerId, s.Name } into g
+                          select new SellerSalesTotal
+                          {
+                              SellerId = g.Key.SellerId,
+                              SellerName = g.Key.Name,
+                              OrderCount = g.Count(),
+                              OrderTotal = g.Sum(x => x.Total)
+                          }).FirstOrDefault();
             }
-
             return result;
         }
 
@@ -134,7 +123,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
         {
             var orderList = new List<Order>();
             int[] orderIds;
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var list = from o in db.Orders where o.SellerId == Context.SellerId && o.Status == OrderStatuses.Authorized select o.Id;
                 orderIds = list.ToArray();
@@ -153,7 +142,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             if (orderId < 1) // order should never be new
                 throw new ArgumentException("Cannot pass new order");
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var model = db.Orders.Find(orderId);
 
@@ -178,7 +167,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             if (orderId < 1) // order should never be new
                 throw new ArgumentException("Cannot pass new order");
 
-            using (var db = new EntityFramework.eCommerceDbContext())
+            using (var db = EntityFramework.DbContextFactory.Create())
             {
                 var model = db.Orders.Find(orderId);
 

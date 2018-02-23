@@ -1,0 +1,23 @@
+create table Carts (
+    Id text not null primary key,
+    CatalogId integer not null,
+    BillingFirst text null,
+    BillingLast text null,
+    BillingEmailAddress text null,
+    BillingAddr1 text null,
+    BillingAddr2 text null,
+    BillingCity text null,
+    BillingState text null,
+    BillingPostal text null,
+    ShippingFirst text null,
+    ShippingLast text null,
+    ShippingEmailAddress text null,
+    ShippingAddr1 text null,
+    ShippingAddr2 text null,
+    ShippingCity text null,
+    ShippingState text null,
+    ShippingPostal text null,
+	CreatedAt datetime default current_timestamp not null,
+	UpdatedAt datetime default current_timestamp not null,
+	foreign key(CatalogId) references Catalogs(Id)
+)

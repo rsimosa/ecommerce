@@ -25,7 +25,7 @@ namespace DPLRef.eCommerce.Tests.EngineTests
                     {
                         ProductId = 1,
                         ProductName = "Test Product 1",
-                        UnitPrice = 5.00m,
+                        UnitPrice = 5.99m,
                         Quantity = 2,
                         ExtendedPrice = 10.00m
                     },
@@ -33,9 +33,9 @@ namespace DPLRef.eCommerce.Tests.EngineTests
                     {
                         ProductId = 2,
                         ProductName = "Test Product 2",
-                        UnitPrice = 5.00m,
+                        UnitPrice = 5.99m,
                         Quantity = 1,
-                        ExtendedPrice = 5.00m
+                        ExtendedPrice = 5.99m
                     },
                 }
             };

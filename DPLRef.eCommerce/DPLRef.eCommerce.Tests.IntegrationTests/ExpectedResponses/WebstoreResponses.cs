@@ -24,13 +24,13 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                         {
                             Id = 1,
                             Name = "TEST_PRODUCT",
-                            Price = 5.00m
+                            Price = 5.99m
                         },
                         new ProductSummary()
                         {
                             Id = 2,
                             Name = "TEST_PRODUCT",
-                            Price = 5.00m
+                            Price = 5.99m
                         }
                     }
                 }
@@ -57,8 +57,8 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                     Detail = "TEST_PRODUCT detail",
                     IsDownloadable = false,
                     Name = "TEST_PRODUCT",
-                    Price = 5.00m,
-                    ShippingWeight = 1.00m,
+                    Price = 5.99m,
+                    ShippingWeight = 1.25m,
                     Summary = "TEST_PRODUCT summary",
                     SupplierName = "TEST_PRODUCT supplier name"
                 }

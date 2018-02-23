@@ -1,0 +1,14 @@
+create table OrderLines (
+    Id integer not null primary key,
+    OrderId integer not null,
+    FromCartItemId integer not null,
+    ProductId integer not null,
+    Quantity integer not null,
+    ProductName text null,
+	CreatedAt datetime default current_timestamp not null,
+	UpdatedAt datetime default current_timestamp not null,
+    UnitPrice numeric not null,
+    ExtendedPrice numeric not null,
+	foreign key(OrderId) references Orders(Id),
+	foreign key(ProductId) references Products(Id)
+)

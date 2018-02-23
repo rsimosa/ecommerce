@@ -111,11 +111,11 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                     Name = "TEST_PRODUCT",
                     Summary = "TEST_PRODUCT summary",
                     Detail = "TEST_PRODUCT detail",
-                    Price = 5.00m,
+                    Price = 5.99m,
                     IsDownloadable = false, // want to be sure we are testing for non-default values
                     IsAvailable = false, // want to be sure we are testing for non-default values
                     SupplierName = "TEST_PRODUCT supplier name",
-                    ShippingWeight = 1.00m
+                    ShippingWeight = 1.25m
                 }
             };
 
@@ -151,11 +151,11 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                     Name = "TEST_PRODUCT",
                     Summary = "TEST_PRODUCT updated summary",
                     Detail = "TEST_PRODUCT detail",
-                    Price = 5.00m,
+                    Price = 5.99m,
                     IsDownloadable = false, // want to be sure we are testing for non-default values
                     IsAvailable = false, // want to be sure we are testing for non-default values
                     SupplierName = "TEST_PRODUCT supplier name",
-                    ShippingWeight = 1.00m
+                    ShippingWeight = 1.25m
                 }
 
 

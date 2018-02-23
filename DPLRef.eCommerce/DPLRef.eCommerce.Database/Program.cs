@@ -3,6 +3,9 @@ using System.Reflection;
 using System.Data.SqlClient;
 using DbUp;
 using DbUp.Engine;
+using DbUp.SQLite;
+using System.IO;
+using Microsoft.Data.Sqlite;
 
 namespace DPLRef.eCommerce.Database
 {
@@ -51,26 +54,72 @@ namespace DPLRef.eCommerce.Database
                     cmd.ExecuteNonQuery();
                 }
             }
+
+        }
+
+        static void CleanupTablesSqlite(string filepath)
+        {
+            File.Delete(filepath);
         }
 
         static int Main(string[] args)
         {
+            var sqlServer = true;
             var connectionString = Environment.GetEnvironmentVariable("eCommerceDatabase");
 
-            EnsureDatabase.For.SqlDatabase(connectionString);
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                // Example value for eCommerceDatabaseSqlite: 
+                // Data Source=C:\Workspaces\eCommerce-Core\DPLRef.eCommerce\eCommerce.sqlite
+                connectionString = Environment.GetEnvironmentVariable("eCommerceDatabaseSqlite");
+                sqlServer = false;
 
-#if DEBUG
-            CleanupTables(connectionString);
-#endif
+                if (string.IsNullOrEmpty(connectionString))
+                    throw new InvalidOperationException("Connection string environment variable missing.");
+            }
 
-            var upgrader =
-                DeployChanges.To
-                    .SqlDatabase(connectionString)
-                    .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly())
-                    .LogToConsole()
-                    .Build();
 
-            var result = upgrader.PerformUpgrade();
+            DatabaseUpgradeResult result = null;
+
+            if (sqlServer)
+            {
+                EnsureDatabase.For.SqlDatabase(connectionString);
+
+                CleanupTables(connectionString);
+
+                var upgrader =
+                    DeployChanges.To
+                        .SqlDatabase(connectionString)
+                        .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly(), (scriptname) =>
+                        {
+                            if (scriptname.StartsWith("Database.Scripts"))
+                                return true;
+                            return false;
+                        })
+                        .LogToConsole()
+                        .Build();
+
+                result = upgrader.PerformUpgrade();
+            }
+            else
+            {
+                var filePath = connectionString.Split("Data Source=")[1];
+                CleanupTablesSqlite(filePath);
+
+                var upgrader =
+                     DeployChanges.To
+                         .SQLiteDatabase(connectionString)
+                         .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly(), (scriptname) =>
+                         {
+                             if (scriptname.StartsWith("Database.SqliteScripts"))
+                                 return true;
+                             return false;
+                         })
+                         .LogToConsole()
+                         .Build();
+
+                result = upgrader.PerformUpgrade();
+            }
 
             if (!result.Successful)
             {
@@ -83,9 +132,15 @@ namespace DPLRef.eCommerce.Database
                 return -1;
             }
 
-#if DEBUG
-            SeedData.Add(connectionString);
-#endif
+            if (sqlServer)
+            {
+                SeedData.Add(connectionString);
+
+            }
+            else
+            {
+                SqliteSeedData.Add(connectionString);
+            }
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Success!");

@@ -1,0 +1,12 @@
+create table CartItems (
+    Id integer not null primary key,
+    CartId text not null,
+    CatalogId integer not null,
+    ProductId integer not null,
+    Quantity integer not null,
+	CreatedAt datetime default current_timestamp not null,
+	UpdatedAt datetime default current_timestamp not null,
+	foreign key(CartId) references Carts(Id),
+	foreign key(ProductId) references Products(Id),
+	foreign key(CatalogId) references Catalogs(Id)
+)

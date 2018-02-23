@@ -1,0 +1,16 @@
+create table Products (
+    Id integer primary key not null,
+    CatalogId integer not null,
+    SellerProductId text null,
+    Name text null,
+    Summary text null,	
+    Detail text null,		
+    Price numeric not null,
+	CreatedAt datetime default current_timestamp not null,
+	UpdatedAt datetime default current_timestamp not null,
+    SupplierName text null,
+    ShippingWeight numeric not null,
+    IsAvailable bit not null default 1,
+    IsDownloadable bit not null default 0,
+	foreign key(CatalogId) references Catalogs(Id)
+)

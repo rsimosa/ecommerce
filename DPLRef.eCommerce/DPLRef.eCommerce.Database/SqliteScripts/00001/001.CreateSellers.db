@@ -1,0 +1,11 @@
+create table Sellers(
+  Id integer primary key not null,
+  Name text null,
+  CreatedAt datetime not null default current_timestamp,
+  UpdatedAt datetime not null default current_timestamp,
+  IsApproved bit not null default 0,
+  BankRoutingNumber integer not null default 0,
+  BankAccountNumber integer not null default 0,
+  OrderNotificationEmail text null,
+  UserName text not null
+)
