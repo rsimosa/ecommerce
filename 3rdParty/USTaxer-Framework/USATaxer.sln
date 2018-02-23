@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USATaxer", "USATaxer\USATaxer.csproj", "{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USATaxer.UnitTests", "USATaxer.UnitTests\USATaxer.UnitTests.csproj", "{CA171A57-6095-4F5D-8ED5-D55F701E9339}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USATaxer.Builder", "USATaxer.Builder\USATaxer.Builder.csproj", "{7721B088-0F46-4A78-A50C-EF41CEA63377}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugAzure|Any CPU = DebugAzure|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}.DebugAzure|Any CPU.ActiveCfg = DebugAzure|Any CPU
+		{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}.DebugAzure|Any CPU.Build.0 = DebugAzure|Any CPU
+		{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF9EA8C-FFED-4F9F-8C98-A339BDEE7AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA171A57-6095-4F5D-8ED5-D55F701E9339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA171A57-6095-4F5D-8ED5-D55F701E9339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA171A57-6095-4F5D-8ED5-D55F701E9339}.DebugAzure|Any CPU.ActiveCfg = DebugAzure|Any CPU
+		{CA171A57-6095-4F5D-8ED5-D55F701E9339}.DebugAzure|Any CPU.Build.0 = DebugAzure|Any CPU
+		{CA171A57-6095-4F5D-8ED5-D55F701E9339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA171A57-6095-4F5D-8ED5-D55F701E9339}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7721B088-0F46-4A78-A50C-EF41CEA63377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7721B088-0F46-4A78-A50C-EF41CEA63377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7721B088-0F46-4A78-A50C-EF41CEA63377}.DebugAzure|Any CPU.ActiveCfg = DebugAzure|Any CPU
+		{7721B088-0F46-4A78-A50C-EF41CEA63377}.DebugAzure|Any CPU.Build.0 = DebugAzure|Any CPU
+		{7721B088-0F46-4A78-A50C-EF41CEA63377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7721B088-0F46-4A78-A50C-EF41CEA63377}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
