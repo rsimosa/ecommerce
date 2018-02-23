@@ -5,54 +5,24 @@ using System;
 using System.Data.SqlClient;
 using System.Transactions;
 
+
 namespace DPLRef.eCommerce.Accessors.EntityFramework
 {
-    public static class DbContextFactory
+    internal class eCommerceDbContext : DbContext
     {
-        public static void CreateGlobalContext()
-        {
-            UnitTestContext = new eCommerceDbContext()
-            {
-                AllowDispose = false
-            };
-            UnitTestContext.Database.BeginTransaction();
-        }
+        internal static eCommerceDbContext UnitTestContext { get; set; }
 
-        public static void CancelGlobalTransaction()
+        internal static eCommerceDbContext Create(bool allowDispose = true)
         {
-            if (UnitTestContext != null)
-            {
-                UnitTestContext.Database.RollbackTransaction();
-                UnitTestContext.AllowDispose = true;
-                UnitTestContext.Dispose();
-                UnitTestContext = null;
-            }
-        }
-
-        public static void CommitGlobalTransaction()
-        {
-            if (UnitTestContext != null)
-            {
-                UnitTestContext.Database.CommitTransaction();
-            }
-        }
-
-        internal static eCommerceDbContext UnitTestContext { get; private set; }
-
-        internal static eCommerceDbContext Create()
-        {
-            if (DbContextFactory.UnitTestContext == null)
+            if (UnitTestContext == null)
                 return new eCommerceDbContext()
                 {
-                    AllowDispose = true
+                    AllowDispose = allowDispose
                 };
             return UnitTestContext;
         }
-    }
 
-    internal class eCommerceDbContext : DbContext
-    {
-        public eCommerceDbContext()
+        private eCommerceDbContext()
             : base()
 
         {

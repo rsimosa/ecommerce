@@ -44,15 +44,31 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
 
             Configuration = builder.Build();
 
-            DbContextFactory.CreateGlobalContext();            
+            CreateGlobalContext();            
         }
 
         [TestCleanup()]
         public void Cleanup()
         {
-            DbContextFactory.CancelGlobalTransaction();
+            CancelGlobalTransaction();
         }
 
+        public static void CreateGlobalContext()
+        {
+            eCommerceDbContext.UnitTestContext = eCommerceDbContext.Create(false);
+            eCommerceDbContext.UnitTestContext.Database.BeginTransaction();
+        }
+
+        public static void CancelGlobalTransaction()
+        {
+            if (eCommerceDbContext.UnitTestContext != null)
+            {
+                eCommerceDbContext.UnitTestContext.Database.RollbackTransaction();
+                eCommerceDbContext.UnitTestContext.AllowDispose = true;
+                eCommerceDbContext.UnitTestContext.Dispose();
+                eCommerceDbContext.UnitTestContext = null;
+            }
+        }
 
         private AmbientContext _context = new AmbientContext()
         {

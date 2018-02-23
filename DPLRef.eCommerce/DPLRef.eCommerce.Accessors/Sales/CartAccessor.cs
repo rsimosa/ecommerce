@@ -27,7 +27,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
                 return null;
             }
             
-            using (var db = EntityFramework.DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 model = db.Carts.Find(Context.SessionId);
 
@@ -57,7 +57,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
                 return null;
             }
 
-            using (var db = EntityFramework.DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
 
                 model = db.Carts.Find(Context.SessionId);
@@ -87,7 +87,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
                 return null;
             }
 
-            using (var db = EntityFramework.DbContextFactory.Create())
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
             {
                 model = db.Carts.Find(Context.SessionId);
 
@@ -133,7 +133,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             Cart cart = null;
             if (id != Guid.Empty)
             {
-                using (var db = EntityFramework.DbContextFactory.Create())
+                using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
                 {
                     EntityFramework.Cart model = db.Carts.Find(id);
 
@@ -171,7 +171,7 @@ namespace DPLRef.eCommerce.Accessors.Sales
             var sessionId = Context.SessionId;
             if (sessionId != Guid.Empty)
             {
-                using (var db = EntityFramework.DbContextFactory.Create())
+                using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
                 {
                     EntityFramework.Cart model = db.Carts.Find(sessionId);
                     // gracefully handle situation where the cart id does not exist

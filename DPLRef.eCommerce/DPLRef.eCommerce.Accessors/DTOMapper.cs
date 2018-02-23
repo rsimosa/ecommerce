@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
 using DPLRef.eCommerce.Accessors.DataTransferObjects;
 using DPLRef.eCommerce.Common.Contracts;
-using DPLRef.eCommerce.Common.Shared;
-using System;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 [assembly: InternalsVisibleTo("DPLRef.eCommerce.Tests.AccessorTests")]
+[assembly: InternalsVisibleTo("DPLRef.eCommerce.Tests.IntegrationTests")]
 
 namespace DPLRef.eCommerce.Accessors
 {
