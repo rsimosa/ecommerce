@@ -145,12 +145,12 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             Assert.IsNull(response.Message);
             Assert.AreEqual(1, response.Cart.CartItems.Length);
             Assert.AreEqual(1, response.Cart.CartItems[0].ProductId);
-            Assert.AreEqual(5.00m, response.Cart.CartItems[0].UnitPrice);
+            Assert.AreEqual(5.99m, response.Cart.CartItems[0].UnitPrice);
             Assert.AreEqual(2, response.Cart.CartItems[0].Quantity);
-            Assert.AreEqual(10.00m, response.Cart.CartItems[0].ExtendedPrice);
-            Assert.AreEqual(10.00m, response.Cart.SubTotal);
-            Assert.AreEqual(0.70m, response.Cart.TaxAmount);
-            Assert.AreEqual(10.70m, response.Cart.Total);
+            Assert.AreEqual(11.98m, response.Cart.CartItems[0].ExtendedPrice);
+            Assert.AreEqual(11.98m, response.Cart.SubTotal);
+            Assert.AreEqual(0.84m, response.Cart.TaxAmount);
+            Assert.AreEqual(12.82m, response.Cart.Total);
         }
 
         [TestMethod]
@@ -432,9 +432,9 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             Assert.AreEqual(OrderStatuses.Authorized, response.Order.Status);
             Assert.IsFalse(string.IsNullOrEmpty(response.Order.AuthorizationCode));
             Assert.AreEqual(1, response.Order.OrderLines.Length);
-            Assert.AreEqual(10.00m, response.Order.SubTotal);
-            Assert.AreEqual(0.70m, response.Order.TaxAmount);
-            Assert.AreEqual(10.70m, response.Order.Total);
+            Assert.AreEqual(11.98m, response.Order.SubTotal);
+            Assert.AreEqual(0.84m, response.Order.TaxAmount);
+            Assert.AreEqual(12.82m, response.Order.Total);
         }
 
         [TestMethod]
