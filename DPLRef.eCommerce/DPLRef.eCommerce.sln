@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Clients", "1. Clients", "{D3311E3A-99CD-40AD-8910-3837ACD3DDB8}"
 EndProject
@@ -58,6 +58,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "DPLRef.eCommerce.Database\Database.csproj", "{83E0B8C7-E420-43F8-A382-64904DCA326C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Service.Notifications", "DPLRef.eCommerce.Service.Notifications\DPLRef.eCommerce.Service.Notifications.csproj", "{67FEEB70-B216-4F80-8CFA-D0FD6772B7E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B9A0AFA-801E-4C33-B18E-103AF9E0DA44}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
