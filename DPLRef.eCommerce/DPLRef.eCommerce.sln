@@ -60,9 +60,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Service.Notifications", "DPLRef.eCommerce.Service.Notifications\DPLRef.eCommerce.Service.Notifications.csproj", "{67FEEB70-B216-4F80-8CFA-D0FD6772B7E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B9A0AFA-801E-4C33-B18E-103AF9E0DA44}"
-	ProjectSection(SolutionItems) = preProject
-		readme.txt = readme.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
