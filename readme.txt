@@ -44,6 +44,11 @@ Environment Variables Database
 	the system will run run. The eCommerceDatabase takes priority over 
 	eCommerceDatabaseSqlite. 
 
+Mac Notes
+	To set your environment variable on a Mac, you need to update your 
+	.bash_profile file. You will need to add an export line like below.
+	export eCommerceDatabaseSqlite="Data Source=~/ecommerce.sqlite"
+
 eCommerceDatabase:			connection string for SQLExpress / SQLServer
 Sample Value:				"Server=.\SqlExpress; Database=DPLRef.eCommerce; Trusted_connection=true"
 
