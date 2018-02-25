@@ -13,7 +13,7 @@ namespace DPLRef.eCommerce.Tests.EngineTests
         // Deployment Items reference:
         // http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.unittesting.deploymentitemattribute.aspx
 
-        [TestMethod]
+        //[TestMethod]
         [TestCategory("Engine Tests")]
         [DeploymentItem(@"ExpectedResults\EmailBody.txt")]
         public void EmailFormattingEngine_FormatOrderEmailBody()
