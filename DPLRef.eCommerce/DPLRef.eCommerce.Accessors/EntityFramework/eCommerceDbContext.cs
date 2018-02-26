@@ -12,6 +12,8 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
     {
         internal static eCommerceDbContext UnitTestContext { get; set; }
 
+        // Everyone that uses the eCommerceDbContext will use this 
+        // constructor method
         internal static eCommerceDbContext Create(bool allowDispose = true)
         {
             if (UnitTestContext == null)
@@ -27,6 +29,14 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
 
         {
 
+        }
+
+        public override void Dispose()
+        {
+            // this is the secret of the wrapper, without this do nothing we won't handle rolling back transactions
+            // only dispose if we are allowing it to dispose
+            if (AllowDispose)
+                base.Dispose();
         }
 
         protected IConfigurationRoot Configuration { get; set; }
@@ -66,14 +76,6 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
         public virtual DbSet<Order> Orders { get; set; }
 
         public bool AllowDispose { get; set; } = true;
-
-        public override void Dispose()
-        {
-            // this is the secret of the wrapper, without this do nothing we won't handle rolling back transactions
-            // only dispose if we are allowing it to dispose
-            if (AllowDispose)
-                base.Dispose();
-        }
 
     }
 }

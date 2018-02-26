@@ -290,3 +290,7 @@ __pycache__/
 
 *.sqlite
 *.sqlite-journal
+
+*.DS_Store
+*._.DS_Store
+*._*.docx
