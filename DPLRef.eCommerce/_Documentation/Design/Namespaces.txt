@@ -1,0 +1,27 @@
+DPLRef.eCommerce.Contracts.Buyer
+	Catalog
+		IBuyerCatalogManager
+
+DPLRef.eCommerce.Managers
+	ManagerFactory
+	CatalogManager
+
+DPLRef.eCommerce.Engines
+	EngineFactory
+	TaxCalculationEngine
+	Contracts
+		ITaxCalculationEngine
+
+DPLRef.eCommerce.Accessors
+	AccessorFactory
+	CatalogAccessor
+	Contracts
+		ICatalogAccessor
+
+DPLRef.eCommerce.Common.Contracts
+	IServiceContractBase
+	ServiceContractBase
+	
+DPLref.eCommerce.Common.DataContracts
+	
+DPLRef.eCommerce.Common.Shared
