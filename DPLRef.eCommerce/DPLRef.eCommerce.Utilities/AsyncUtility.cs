@@ -1,4 +1,5 @@
 ﻿using DPLRef.eCommerce.Common.Contracts;
+using DPLRef.eCommerce.Common.Shared;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -36,7 +37,7 @@ namespace DPLRef.eCommerce.Utilities
 
         private DirectoryInfo QueueDir()
         {
-            var queuePath = Environment.GetEnvironmentVariable("eCommerceQueuePath");
+            var queuePath = Config.QueuePath;
             var queueDir = new DirectoryInfo(queuePath);
             if (!queueDir.Exists)
                 queueDir.Create();
