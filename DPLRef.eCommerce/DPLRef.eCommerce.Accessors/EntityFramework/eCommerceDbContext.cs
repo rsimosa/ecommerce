@@ -51,14 +51,14 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
 
 
 
-            string connectionString = Configuration["eCommerceDatabase"];
+            string connectionString = Common.Shared.Config.SqlServerConnectionString;
             if (!string.IsNullOrEmpty(connectionString))
             {
                 optionsBuilder.UseSqlServer(connectionString);
             }
             else
             {
-                connectionString = Configuration["eCommerceDatabaseSqlite"];
+                connectionString = Common.Shared.Config.SqliteConnectionString;
 
                 if (string.IsNullOrEmpty(connectionString))
                     throw new InvalidOperationException("Connection string environment variable missing.");

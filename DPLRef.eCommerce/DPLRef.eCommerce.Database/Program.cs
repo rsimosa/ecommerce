@@ -6,6 +6,7 @@ using DbUp.Engine;
 using DbUp.SQLite;
 using System.IO;
 using Microsoft.Data.Sqlite;
+using DPLRef.eCommerce.Common.Shared;
 
 namespace DPLRef.eCommerce.Database
 {
@@ -65,13 +66,13 @@ namespace DPLRef.eCommerce.Database
         static int Main(string[] args)
         {
             var sqlServer = true;
-            var connectionString = Environment.GetEnvironmentVariable("eCommerceDatabase");
+            var connectionString = Config.SqlServerConnectionString;
 
             if (string.IsNullOrEmpty(connectionString))
             {
                 // Example value for eCommerceDatabaseSqlite: 
                 // Data Source=C:\Workspaces\eCommerce-Core\DPLRef.eCommerce\eCommerce.sqlite
-                connectionString = Environment.GetEnvironmentVariable("eCommerceDatabaseSqlite");
+                connectionString = Config.SqliteConnectionString;
                 sqlServer = false;
 
                 if (string.IsNullOrEmpty(connectionString))

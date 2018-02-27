@@ -49,4 +49,8 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.4.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DPLRef.eCommerce.Common.Shared\DPLRef.eCommerce.Common.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
