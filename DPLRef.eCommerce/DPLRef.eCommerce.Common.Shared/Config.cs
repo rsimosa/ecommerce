@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 
 namespace DPLRef.eCommerce.Common.Shared
 {
@@ -43,7 +41,16 @@ namespace DPLRef.eCommerce.Common.Shared
             }
         }
 
-        private static string GetPath(string environmentVariable, string defaultDir = null, 
+        public static string IndexPath
+        {
+            get
+            {
+                return GetPath("eCommerceIndexPath", "SearchIndex");
+            }
+
+        }
+
+        private static string GetPath(string environmentVariable, string defaultDir = null,
             string defaultFile = null, string prefix = null)
         {
             var result = Environment.GetEnvironmentVariable(environmentVariable);
