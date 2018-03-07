@@ -16,11 +16,11 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Column(TypeName = "datetime2")]
-        public DateTime CreatedAt { get; set; }
+        [Column(TypeName = "datetimeoffset")]
+        public DateTimeOffset CreatedAt { get; set; } = DateTimeOffset.Now;
 
-        [Column(TypeName = "datetime2")]
-        public DateTime UpdatedAt { get; set; }
+        [Column(TypeName = "datetimeoffset")]
+        public DateTimeOffset UpdatedAt { get; set; } = DateTimeOffset.Now;
 
         public bool IsApproved { get; set; }
 

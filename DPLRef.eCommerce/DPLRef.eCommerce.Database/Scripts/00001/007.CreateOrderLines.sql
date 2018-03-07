@@ -7,8 +7,8 @@ create table OrderLines (
     ProductId int not null,
     Quantity int not null,
     ProductName nvarchar(50) null,
-    CreatedAt datetime2 not null default(getdate()),
-    UpdatedAt datetime2 not null default(getdate()),
+    CreatedAt datetimeoffset not null default(getdate()),
+    UpdatedAt datetimeoffset not null default(getdate()),
 
     UnitPrice decimal(18,2) not null,
     ExtendedPrice decimal(18,2) not null

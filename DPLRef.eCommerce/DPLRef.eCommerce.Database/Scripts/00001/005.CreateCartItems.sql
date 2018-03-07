@@ -6,8 +6,8 @@ create table CartItems (
     ProductId int not null,
     Quantity int not null,
 
-    CreatedAt datetime2 not null default(getdate()),
-    UpdatedAt datetime2 not null default(getdate())
+    CreatedAt datetimeoffset not null default(getdate()),
+    UpdatedAt datetimeoffset not null default(getdate())
 )
  
 ALTER TABLE [dbo].CartItems

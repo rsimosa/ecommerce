@@ -18,8 +18,8 @@ create table Carts (
     ShippingCity nvarchar(50) null,
     ShippingState nvarchar(50) null,
     ShippingPostal  nvarchar(50) null,
-    CreatedAt datetime2 not null default(getdate()),
-    UpdatedAt datetime2 not null default(getdate())
+    CreatedAt datetimeoffset not null default(getdate()),
+    UpdatedAt datetimeoffset not null default(getdate())
 )
  
 ALTER TABLE [dbo].Carts

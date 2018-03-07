@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -10,7 +11,7 @@ namespace DPLRef.eCommerce.Common.Shared
         {
             get
             {
-                return GetPath("eCommerceDatabase");
+                return GetConfigValue("eCommerceDatabase");
             }
         }
 
@@ -18,7 +19,7 @@ namespace DPLRef.eCommerce.Common.Shared
         {
             get
             {
-                var result = GetPath("eCommerceDatabaseSqlite", "Database", "db.sqlite", "Data Source=");
+                var result = GetConfigValue("eCommerceDatabaseSqlite", "Database", "db.sqlite", "Data Source=");
                 return result;
             }
         }
@@ -37,7 +38,7 @@ namespace DPLRef.eCommerce.Common.Shared
         {
             get
             {
-                return GetPath("eCommerceQueuePath", "Queue");
+                return GetConfigValue("eCommerceQueuePath", "Queue");
             }
         }
 
@@ -45,15 +46,31 @@ namespace DPLRef.eCommerce.Common.Shared
         {
             get
             {
-                return GetPath("eCommerceIndexPath", "SearchIndex");
+                return GetConfigValue("eCommerceIndexPath", "SearchIndex");
             }
 
         }
 
-        private static string GetPath(string environmentVariable, string defaultDir = null,
+        static IConfiguration _cachedConfig;
+        private static IConfiguration Configuration
+        {
+            get
+            {
+                if (_cachedConfig == null)
+                {
+                    var builder = new ConfigurationBuilder()
+                        .AddEnvironmentVariables();
+                    _cachedConfig = builder.Build();
+                }
+
+                return _cachedConfig;
+            }
+        }
+
+        private static string GetConfigValue(string environmentVariable, string defaultDir = null,
             string defaultFile = null, string prefix = null)
         {
-            var result = Environment.GetEnvironmentVariable(environmentVariable);
+            var result = Configuration[environmentVariable];
             if (string.IsNullOrWhiteSpace(result) && defaultDir != null)
             {
                 if (Assembly.GetExecutingAssembly().Location.Contains("DPLRef.eCommerce"))

@@ -96,7 +96,7 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
                 Status = OrderStatuses.Authorized,
                 SubTotal = 10.0M,
                 TaxAmount = 0.70M,
-                Total = 10.70M    
+                Total = 10.70M                    
             };
 
             var accessor = CreateOrderAccessor();

@@ -43,13 +43,11 @@ namespace DPLRef.eCommerce.Accessors.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-
             var builder = new ConfigurationBuilder()
-                .AddEnvironmentVariables();
+.AddEnvironmentVariables();
             Configuration = builder.Build();
 
-
+            base.OnConfiguring(optionsBuilder);
 
             string connectionString = Common.Shared.Config.SqlServerConnectionString;
             if (!string.IsNullOrEmpty(connectionString))

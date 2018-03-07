@@ -5,8 +5,8 @@ create table Catalogs (
     Name nvarchar(50) null,
     Description nvarchar(max) null,
     IsApproved bit not null default(1),
-    CreatedAt datetime2 not null default(getdate()),
-    UpdatedAt datetime2 not null default(getdate())
+    CreatedAt datetimeoffset not null default(getdate()),
+    UpdatedAt datetimeoffset not null default(getdate())
 )
 
 ALTER TABLE [dbo].Catalogs
