@@ -296,3 +296,6 @@ __pycache__/
 *._*.docx
 
 TempFiles
+
+._*.docx
+._*.pptx
