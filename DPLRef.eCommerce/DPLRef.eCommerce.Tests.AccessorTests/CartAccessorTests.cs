@@ -24,9 +24,9 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
 
         Address billing = new Address()
         {
-            First = "Bob",
-            Last = "Smith",
-            Addr1 = "address1",
+            First = "Melody",
+            Last = "Ensign",
+            Addr1 = "3427 Berkley Street",
             City = "Lincoln",
             State = "Nebraska",
             Postal = "68508",

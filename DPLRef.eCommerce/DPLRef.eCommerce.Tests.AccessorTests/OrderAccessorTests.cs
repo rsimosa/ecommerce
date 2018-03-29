@@ -10,30 +10,37 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
     {
         #region Test Objects
 
+        Address BillingAddress
+        {
+            get
+            {
+                return new Address()
+                {
+                    First = "Bob",
+                    Last = "Smith",
+                    EmailAddress = "bob.smith@dontpaniclabsl.com",
+                    Addr1 = "4273 Commerce Boulevard",
+                    City = "Lincoln",
+                    State = "Nebraska",
+                    Postal = "68508",
+                };
+            }
+        }
+
+        Address ShippingAddress
+        {
+            get
+            {
+                return BillingAddress;
+            }
+        }
+
         Order CreateUnfulfilledOrderObject()
         {
             return new Order()
             {
-                BillingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
-                ShippingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                BillingAddress = BillingAddress,
+                ShippingAddress = ShippingAddress,
                 OrderLines = new OrderLine[]
                     {
                     new OrderLine()
@@ -61,26 +68,8 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         {
             var order = new Order()
             {
-                BillingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
-                ShippingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                BillingAddress = BillingAddress,
+                ShippingAddress = ShippingAddress,
                 OrderLines = new OrderLine[] 
                 {
                     new OrderLine()
@@ -143,26 +132,8 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         {
             var order = new Order()
             {
-                BillingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
-                ShippingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                BillingAddress = BillingAddress,
+                ShippingAddress = ShippingAddress,
                 OrderLines = null,
                 Total = 10.0M
             };
@@ -187,16 +158,7 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         {
             var order = new Order()
             {
-                ShippingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                ShippingAddress = ShippingAddress,
                 OrderLines = new OrderLine[]
                 {
                     new OrderLine()
@@ -220,16 +182,7 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         {
             var order = new Order()
             {
-                BillingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                BillingAddress = BillingAddress,
                 ShippingAddress = null,
                 OrderLines = new OrderLine[]
                 {
@@ -276,26 +229,8 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         {
             var order = new Order()
             {
-                BillingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
-                ShippingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                BillingAddress = BillingAddress,
+                ShippingAddress = ShippingAddress,
                 OrderLines = new OrderLine[]
                 {
                     new OrderLine()
@@ -350,28 +285,10 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         {
             var order = new Order()
             {
-                BillingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
-                ShippingAddress = new Address()
-                {
-                    First = "Bob",
-                    Last = "Smith",
-                    EmailAddress = "bob.smith@dontpaniclabsl.com",
-                    Addr1 = "address1",
-                    City = "Lincoln",
-                    State = "Nebraska",
-                    Postal = "68508",
-                },
+                BillingAddress = BillingAddress,
+                ShippingAddress = ShippingAddress,
                 OrderLines = new OrderLine[]
-       {
+                {
                     new OrderLine()
                     {
                         ProductId = 1,
@@ -379,7 +296,7 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
                         ExtendedPrice = 10.0M,
                         Quantity = 1,
                     }
-       },
+                },
                 Total = 10.0M
             };
 

@@ -13,25 +13,23 @@ namespace DPLRef.eCommerce.Client.WebStore
         private static Guid _sessionId = Guid.NewGuid();
         private static readonly Address _billingAddress = new Address()
         {
-            Addr1 = "My Billing Address 1",
-            Addr2 = "My Billing Address 2",
-            City = "My Billing City",
-            First = "My Billing First",
-            Last = "My Billing Last",
-            EmailAddress = "my.email.address@dontpaniclabs.com",
-            Postal = "My Billing Postal",
-            State = "My Billing State"
+            Addr1 = "4219 Crummit Lane",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "James",
+            Last = "McGlynn",
+            Postal = "68508",
+            State = "Nebraska"
         };
         private static readonly Address _shippingAddress = new Address()
         {
-            Addr1 = "My Shipping Address 1",
-            Addr2 = "My Shipping Address 2",
-            City = "My Shipping City",
-            First = "My Shipping First",
-            Last = "My Shipping Last",
-            EmailAddress = "my.shipping.email.address@dontpaniclabs.com",
-            Postal = "My Shipping Postal",
-            State = "My Shipping State"
+            Addr1 = "4219 Crummit Lane",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "James",
+            Last = "McGlynn",
+            Postal = "68508",
+            State = "Nebraska"
         };
 
         private static readonly PaymentInstrument PaymentInstrument = new PaymentInstrument()

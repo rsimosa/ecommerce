@@ -17,23 +17,23 @@ namespace DPLRef.eCommerce.Tests.Mocks
 
         public static readonly Address MyAddress = new Address()
         {
-            Addr1 = "My Address 1",
-            Addr2 = "My Address 2",
-            City = "My City",
-            First = "My First",
-            Last = "My Last",
-            Postal = "My Postal",
-            State = "My State"
+            Addr1 = "4771 Snowbird Lane",
+            Addr2 = "",
+            City = "Hooper",
+            First = "Neil",
+            Last = "Diaz",
+            Postal = "02138",
+            State = "Nebraska"
         };
         public static readonly Address MySameAddress = new Address()
         {
-            Addr1 = "My Same Address 1",
-            Addr2 = "My Same Address 2",
-            City = "My Same City",
-            First = "My Same First",
-            Last = "My Same Last",
-            Postal = "My Same Postal",
-            State = "My Same State"
+            Addr1 = "2498 Post Avenue",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "Jeanine",
+            Last = "Jeanine M Gilbert",
+            Postal = "68512",
+            State = "Nebraska"
         };
         public static readonly Address MyBadAddress = new Address();
 
