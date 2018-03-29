@@ -14,11 +14,23 @@ namespace DPLRef.eCommerce.Tests.EngineTests
         [TestCategory("Engine Tests")]
         public void TaxCalculationEngine_CalculateCartTax()
         {
+            var address = new Address()
+            {
+                First = "Marvin",
+                Last = "Waller",
+                Addr1 = "4928 Commerce Boulevard",
+                State = "Nebraska",
+                City = "Lincoln",
+                Postal = "68508",
+            };
+
             WebStoreCart wsCart = new WebStoreCart()
             {
                 Id = new Guid("aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"),
                 SubTotal = 15.00m,
                 Total = 15.00m,
+                BillingAddress = address,
+                ShippingAddress = address,
                 CartItems = new WebStoreCartItem[]
                 {
                     new WebStoreCartItem()

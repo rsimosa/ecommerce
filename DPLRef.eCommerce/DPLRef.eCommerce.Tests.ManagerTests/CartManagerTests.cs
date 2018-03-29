@@ -21,23 +21,23 @@ namespace DPLRef.eCommerce.Tests.ManagerTests
         private static readonly Guid _myBothInfoSessionId = new Guid("ffffffff-bbbb-cccc-dddd-eeeeeeeeeeee");
         private static readonly Address _myAddress = new Address()
         {
-            Addr1 = "My Address 1",
-            Addr2 = "My Address 2",
-            City = "My City",
-            First = "My First",
-            Last = "My Last",
-            Postal = "My Postal",
-            State = "My State"
+            Addr1 = "1855 Armbrester Drive",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "Nicholas",
+            Last = "Roderick",
+            Postal = "68512",
+            State = "Nebraska"
         };
         private static readonly Address _mySameAddress = new Address()
         {
-            Addr1 = "My Same Address 1",
-            Addr2 = "My Same Address 2",
-            City = "My Same City",
-            First = "My Same First",
-            Last = "My Same Last",
-            Postal = "My Same Postal",
-            State = "My Same State"
+            Addr1 = "3808 North Avenue",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "Nina",
+            Last = "Hernandez",
+            Postal = "68512",
+            State = "Nebraska"
         };
         private static readonly Address _myBadAddress = new Address();
 
@@ -128,7 +128,7 @@ namespace DPLRef.eCommerce.Tests.ManagerTests
         public void CartManager_SaveCartItem()
         {
             var mgr = GetWebStoreManager(MockData.MySessionId);
-
+            mgr.UpdateBillingInfo(1, _myAddress, true);
             var response = mgr.SaveCartItem(CatalogId, 1, 1);
 
             Assert.IsTrue(response.Success);

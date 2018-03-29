@@ -17,25 +17,25 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
         #region Test Objects
         private static readonly Address _myAddress = new Address()
         {
-            Addr1 = "My Address 1",
-            Addr2 = "My Address 2",
-            City = "My City",
-            First = "My First",
-            Last = "My Last",
-            EmailAddress = "My Email Address",
-            Postal = "My Postal",
-            State = "My State"
+            Addr1 = "1511 Snowbird Lane",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "Joan",
+            Last = "Belmont",
+            Postal = "68508",
+            State = "Nebraska",
+            EmailAddress = "joan@example.com"
         };
         private static readonly Address _mySameAddress = new Address()
         {
-            Addr1 = "My Same Address 1",
-            Addr2 = "My Same Address 2",
-            City = "My Same City",
-            First = "My Same First",
-            Last = "My Same Last",
-            EmailAddress = "My Same Emaill Address",
-            Postal = "My Same Postal",
-            State = "My Same State"
+            Addr1 = "4928 Commerce Boulevard",
+            Addr2 = "",
+            City = "Lincoln",
+            First = "Marvin",
+            Last = "Waller",
+            Postal = "68508",
+            State = "Nebraska",
+            EmailAddress = "joan@example.com"
         };
         #endregion
 
@@ -139,6 +139,8 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
         {
             var context = new AmbientContext() { SellerId = 1, SessionId = Guid.NewGuid() };
             var webStoreCartManager = GetManager<IWebStoreCartManager>(context);
+            webStoreCartManager.UpdateBillingInfo(1, _myAddress, false);
+            webStoreCartManager.UpdateShippingInfo(1, _myAddress, false);
             var response = webStoreCartManager.SaveCartItem(1, 1, 2);
 
             Assert.IsTrue(response.Success);
