@@ -10,7 +10,9 @@ namespace DPLRef.eCommerce.Service.Notifications
     {
         static void Main(string[] args)
         {
-            while(true)
+            Console.WriteLine("Starting Notifications Service");
+
+            while (true)
             {
                 var utilityFactory = new Utilities.UtilityFactory(new Common.Contracts.AmbientContext());
                 var asyncUtility = utilityFactory.CreateUtility<IAsyncUtility>();
