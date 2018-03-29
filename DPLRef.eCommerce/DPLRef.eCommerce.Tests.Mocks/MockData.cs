@@ -22,7 +22,7 @@ namespace DPLRef.eCommerce.Tests.Mocks
             City = "Hooper",
             First = "Neil",
             Last = "Diaz",
-            Postal = "02138",
+            Postal = "68512",
             State = "Nebraska"
         };
         public static readonly Address MySameAddress = new Address()
