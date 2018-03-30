@@ -6,6 +6,31 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
     {
         #region Catalog Responses
 
+        public static WebStoreCatalog GenericCatalog
+        {
+            get
+            {
+                return new WebStoreCatalog()
+                {
+                    Id = 1,
+                    Name = "Santi's Wacky Used Car Emporium",
+                    Description = "Santi's Wacky Used Car Emporium description"
+                };
+            }
+        }
+        public static WebStoreCatalog OverflowCatalog
+        {
+            get
+            {
+                return new WebStoreCatalog()
+                {
+                    Id = 2,
+                    Name = "Santi's Wacky Used Car Overflow",
+                    Description = "Santi's Wacky Used Car Overflow description"
+                };
+            }
+        }
+
         // standard list of catalogs response based upon the seed data
         public static AdminCatalogsResponse FindCatalogsResponse { get; private set; }
             = new AdminCatalogsResponse()
@@ -14,18 +39,8 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                     Message = null,
                     Catalogs = new WebStoreCatalog[]
                     {
-                        new WebStoreCatalog()
-                        {
-                            Id = 1,
-                            Name = "TEST_CATALOG",
-                            Description = "TEST_CATALOG description"
-                        },
-                        new WebStoreCatalog()
-                        {
-                            Id = 2,
-                            Name = "TEST_CATALOG_2",
-                            Description = "TEST_CATALOG_2 description"
-                        }
+                        GenericCatalog,
+                        OverflowCatalog
                     }
             };
 
@@ -44,12 +59,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
             {
                 Success = true,
                 Message = null,
-                Catalog = new WebStoreCatalog()
-                {
-                    Id = 1,
-                    Name = "TEST_CATALOG",
-                    Description = "TEST_CATALOG description"
-                }
+                Catalog = GenericCatalog
             };
 
         // "Catalog not found"
@@ -79,8 +89,8 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                 Catalog = new WebStoreCatalog()
                 {
                     Id = 1,
-                    Name = "TEST_CATALOG",
-                    Description = "TEST_CATALOG updated description"
+                    Name = "Santi's Wacky Used Car Emporium",
+                    Description = "UPDATED"
                 }
             };
 
@@ -105,16 +115,16 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                 Message = null,
                 Product = new Product()
                 {
-                    Id = 3,
+                    Id = 1003,
                     CatalogId = 2,
                     SellerProductId = null,
-                    Name = "TEST_PRODUCT",
-                    Summary = "TEST_PRODUCT summary",
-                    Detail = "TEST_PRODUCT detail",
-                    Price = 5.99m,
+                    Name = "2006 Chevrolet Suburban",
+                    Summary = "Used 2006 Chevrolet Suburban",
+                    Detail = "Used car from Santi's Used Car Emporium",
+                    Price = 1011.00m,
                     IsDownloadable = false, // want to be sure we are testing for non-default values
-                    IsAvailable = false, // want to be sure we are testing for non-default values
-                    SupplierName = "TEST_PRODUCT supplier name",
+                    IsAvailable = true, // want to be sure we are testing for non-default values
+                    SupplierName = "Chevrolet",
                     ShippingWeight = 1.25m
                 }
             };
@@ -145,16 +155,16 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                 Message = null,
                 Product = new Product()
                 {
-                    Id = 3,
+                    Id = 1003,
                     CatalogId = 2,
                     SellerProductId = null,
-                    Name = "TEST_PRODUCT",
+                    Name = "2006 Chevrolet Suburban",
                     Summary = "TEST_PRODUCT updated summary",
-                    Detail = "TEST_PRODUCT detail",
-                    Price = 5.99m,
+                    Detail = "Used car from Santi's Used Car Emporium",
+                    Price = 1011.00m,
                     IsDownloadable = false, // want to be sure we are testing for non-default values
-                    IsAvailable = false, // want to be sure we are testing for non-default values
-                    SupplierName = "TEST_PRODUCT supplier name",
+                    IsAvailable = true, // want to be sure we are testing for non-default values
+                    SupplierName = "Chevrolet",
                     ShippingWeight = 1.25m
                 }
 

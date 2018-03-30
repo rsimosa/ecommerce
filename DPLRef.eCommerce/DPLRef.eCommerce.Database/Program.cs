@@ -3,9 +3,7 @@ using System.Reflection;
 using System.Data.SqlClient;
 using DbUp;
 using DbUp.Engine;
-using DbUp.SQLite;
 using System.IO;
-using Microsoft.Data.Sqlite;
 using DPLRef.eCommerce.Common.Shared;
 
 namespace DPLRef.eCommerce.Database
@@ -79,6 +77,19 @@ namespace DPLRef.eCommerce.Database
                     throw new InvalidOperationException("Connection string environment variable missing.");
             }
 
+            // add ability to override connection string using command line argument
+            if (args != null && args.Length >= 2)
+            {
+                if (args[0] == "sqlite")
+                {
+                    sqlServer = false;
+                }
+                else
+                {
+                    sqlServer = true;
+                }
+                connectionString = args[1];
+            }
 
             DatabaseUpgradeResult result = null;
 
@@ -93,7 +104,7 @@ namespace DPLRef.eCommerce.Database
                         .SqlDatabase(connectionString)
                         .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly(), (scriptname) =>
                         {
-                            if (scriptname.StartsWith("Database.Scripts"))
+                            if (scriptname.StartsWith("DPLRef.eCommerce.Database.Scripts"))
                                 return true;
                             return false;
                         })
@@ -112,7 +123,7 @@ namespace DPLRef.eCommerce.Database
                          .SQLiteDatabase(connectionString)
                          .WithScriptsEmbeddedInAssembly(Assembly.GetExecutingAssembly(), (scriptname) =>
                          {
-                             if (scriptname.StartsWith("Database.SqliteScripts"))
+                             if (scriptname.StartsWith("DPLRef.eCommerce.Database.SqliteScripts"))
                                  return true;
                              return false;
                          })
@@ -133,14 +144,10 @@ namespace DPLRef.eCommerce.Database
                 return -1;
             }
 
-            if (sqlServer)
+            using (var accessor = CreateSeedDataAccessor(connectionString, sqlServer))
             {
-                SeedData.Add(connectionString);
-
-            }
-            else
-            {
-                SqliteSeedData.Add(connectionString);
+                SeedDataManager seedData = new SeedDataManager(accessor);
+                seedData.Add();
             }
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -150,6 +157,18 @@ namespace DPLRef.eCommerce.Database
             Console.ReadLine();
 
             return 0;
+        }
+
+        private static ISeedDataAccessor CreateSeedDataAccessor(string connectionString, bool sqlServer)
+        {
+            if (sqlServer)
+            {
+                return new SqlSeedDataAccessor(connectionString);
+            }
+            else
+            {
+                return new SqliteSeedDataAccessor(connectionString);
+            }
         }
     }
 }

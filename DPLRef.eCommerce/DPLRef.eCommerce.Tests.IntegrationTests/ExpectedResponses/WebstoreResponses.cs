@@ -53,14 +53,14 @@ namespace DPLref.eCommerce.Tests.IntegrationTests.ExpectedResponses
                 Message = null,
                 Product = new ProductDetail()
                 {
-                    Id = 3,
-                    Detail = "TEST_PRODUCT detail",
+                    Id = 1003,
+                    Detail = "Used car from Santi's Used Car Emporium",
                     IsDownloadable = false,
-                    Name = "TEST_PRODUCT",
-                    Price = 5.99m,
+                    Name = "2006 Chevrolet Suburban",
+                    Price = 1011.00m,
                     ShippingWeight = 1.25m,
-                    Summary = "TEST_PRODUCT summary",
-                    SupplierName = "TEST_PRODUCT supplier name"
+                    Summary = "Used 2006 Chevrolet Suburban",
+                    SupplierName = "Chevrolet"
                 }
             };
 

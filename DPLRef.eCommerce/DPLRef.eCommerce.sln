@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Client.Bac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Tests.IntegrationTests", "DPLRef.eCommerce.Tests.IntegrationTests\DPLRef.eCommerce.Tests.IntegrationTests.csproj", "{B42A3686-456F-4FDD-8BCB-0E5F6C221008}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "DPLRef.eCommerce.Database\Database.csproj", "{83E0B8C7-E420-43F8-A382-64904DCA326C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Database", "DPLRef.eCommerce.Database\DPLRef.eCommerce.Database.csproj", "{83E0B8C7-E420-43F8-A382-64904DCA326C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DPLRef.eCommerce.Service.Notifications", "DPLRef.eCommerce.Service.Notifications\DPLRef.eCommerce.Service.Notifications.csproj", "{67FEEB70-B216-4F80-8CFA-D0FD6772B7E9}"
 EndProject

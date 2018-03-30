@@ -145,7 +145,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             Assert.AreEqual(expectedJson, responseJson);
 
             // change the description and update the catalog
-            response.Catalog.Description = "TEST_CATALOG updated description";
+            response.Catalog.Description = "UPDATED";
             var updateResponse = adminCatalogManager.SaveCatalog(response.Catalog);
             responseJson = StringUtilities.DataContractToJson(updateResponse);
             expectedJson = StringUtilities.DataContractToJson(AdminResponses.CatalogUpdateResponse);
@@ -215,7 +215,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var context = new AmbientContext() { SellerId = 1, AuthToken = "MyToken"};
             var managerFactory = new ManagerFactory(context);
             var webStoreCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
-            var response = webStoreCatalogManager.ShowProduct(2, 3);
+            var response = webStoreCatalogManager.ShowProduct(2, 1003);
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 
@@ -286,7 +286,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var context = new AmbientContext() { SellerId = 1, AuthToken = "MyToken" };
             var managerFactory = new ManagerFactory(context);
             var adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
-            var response = adminCatalogManager.ShowProduct(2, 3);
+            var response = adminCatalogManager.ShowProduct(2, 1003);
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 
@@ -348,7 +348,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var context = new AmbientContext() { SellerId = 1, AuthToken = "MyToken" };
             var managerFactory = new ManagerFactory(context);
             var adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
-            var response = adminCatalogManager.ShowProduct(2, 3);
+            var response = adminCatalogManager.ShowProduct(2, 1003);
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 
@@ -376,7 +376,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var context = new AmbientContext() { SellerId = 1, AuthToken = "MyToken" };
             var managerFactory = new ManagerFactory(context);
             var adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
-            var response = adminCatalogManager.ShowProduct(2, 3);
+            var response = adminCatalogManager.ShowProduct(2, 1003);
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 

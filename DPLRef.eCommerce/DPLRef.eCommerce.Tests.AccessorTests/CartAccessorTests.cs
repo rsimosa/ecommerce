@@ -150,15 +150,15 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
 
             var catalog = accessor.ShowCart(catalogId);
 
-            var saved = accessor.SaveCartItem(catalogId, 2, 1);
+            var saved = accessor.SaveCartItem(catalogId, 2, 1001);
 
             Assert.IsNotNull(saved);
             Assert.IsNotNull(saved.CartItems);
             Assert.AreEqual(1, saved.CartItems.Length);
             Assert.AreEqual(2, saved.CartItems[0].ProductId);
-            Assert.AreEqual(1, saved.CartItems[0].Quantity);
+            Assert.AreEqual(1001, saved.CartItems[0].Quantity);
             Assert.IsNotNull(saved.CartItems[0].ProductName);
-            Assert.AreEqual("TEST_PRODUCT", saved.CartItems[0].ProductName);
+            Assert.AreEqual("1997 Volvo 960", saved.CartItems[0].ProductName);
         }
 
         [TestMethod]
