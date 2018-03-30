@@ -51,7 +51,7 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             // replace the AsyncUtility with a mock to avoid usage of queue IFX in tests
             var mockAsyncUtility = new MockAsyncUtility(this.mockData);
 
-            UtilityFactory utilFactory = new UtilityFactory(new AmbientContext());
+            UtilityFactory utilFactory = new UtilityFactory(context);
             utilFactory.AddOverride<IAsyncUtility>(mockAsyncUtility);
 
             var managerFactory = new ManagerFactory(context);
