@@ -49,6 +49,9 @@ namespace DPLRef.eCommerce.Database
                 select scope_identity()
             ";
 
+            if (name.Length > 50)
+                name = name.Substring(0, 50);
+
             using (var cmd = new SqlCommand(sql, _connection))
             {
                 cmd.Parameters.AddWithValue("name", name);

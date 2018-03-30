@@ -8,6 +8,7 @@
   <ItemGroup>
     <None Remove="cars.json" />
     <None Remove="cars2.json" />
+    <None Remove="movies.json" />
     <None Remove="Scripts\00001\001.CreateSellers.sql" />
     <None Remove="Scripts\00001\002.CreateCatalogs.sql" />
     <None Remove="Scripts\00001\003.CreateProducts.sql" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <EmbeddedResource Include="cars.json" />
     <EmbeddedResource Include="cars2.json" />
+    <EmbeddedResource Include="movies.json" />
     <EmbeddedResource Include="Scripts\00001\001.CreateSellers.sql" />
     <EmbeddedResource Include="Scripts\00001\002.CreateCatalogs.sql" />
     <EmbeddedResource Include="Scripts\00001\003.CreateProducts.sql" />
