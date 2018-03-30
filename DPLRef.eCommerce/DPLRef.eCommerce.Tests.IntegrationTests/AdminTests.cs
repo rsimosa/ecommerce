@@ -216,6 +216,9 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var managerFactory = new ManagerFactory(context);
             var webStoreCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
             var response = webStoreCatalogManager.ShowProduct(2, 1003);
+
+            response.Product.Price = response.Product.Price + 0.00M;
+            AdminResponses.ProductResponse.Product.Price = AdminResponses.ProductResponse.Product.Price + 0.00M;
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 
@@ -287,6 +290,10 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var managerFactory = new ManagerFactory(context);
             var adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
             var response = adminCatalogManager.ShowProduct(2, 1003);
+
+            // normalize decimal percision - SQL Server and Sqlite behave differently
+            response.Product.Price = response.Product.Price + 0.00M;
+
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 
@@ -349,6 +356,10 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var managerFactory = new ManagerFactory(context);
             var adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
             var response = adminCatalogManager.ShowProduct(2, 1003);
+
+            // normalize decimal percision - SQL Server and Sqlite behave differently
+            response.Product.Price = response.Product.Price + 0.00M;
+
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 
@@ -361,6 +372,10 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             managerFactory.Context.AuthToken = "";
             adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
             var updateResponse = adminCatalogManager.SaveProduct(2, response.Product);
+
+            // normalize decimal percision - SQL Server and Sqlite behave differently
+            response.Product.Price = response.Product.Price + 0.00M;
+
             responseJson = StringUtilities.DataContractToJson(updateResponse);
             expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductNoAuthResponse);
 
@@ -377,6 +392,10 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var managerFactory = new ManagerFactory(context);
             var adminCatalogManager = managerFactory.CreateManager<IAdminCatalogManager>();
             var response = adminCatalogManager.ShowProduct(2, 1003);
+
+            // normalize decimal percision - SQL Server and Sqlite behave differently
+            response.Product.Price = response.Product.Price + 0.00M;
+
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(AdminResponses.ProductResponse);
 

@@ -51,13 +51,16 @@ namespace DPLRef.eCommerce.Database
                 select last_insert_rowid();
             ";
 
+            if (name.Length > 50)
+                name = name.Substring(0, 50);
+
             using (var cmd = new SqliteCommand(sqlite, _connection))
             {
                 cmd.Parameters.AddWithValue("name", name);
                 cmd.Parameters.AddWithValue("catalogid", catalogId);
                 cmd.Parameters.AddWithValue("isavailable", isAvailable);
                 cmd.Parameters.AddWithValue("isdownloadable", isDownloadable);
-                cmd.Parameters.AddWithValue("price", price);
+                cmd.Parameters.AddWithValue("price", price * 1.00M);
                 cmd.Parameters.AddWithValue("summary", summary);
                 cmd.Parameters.AddWithValue("detail", detail);
                 cmd.Parameters.AddWithValue("supplier", supplier);

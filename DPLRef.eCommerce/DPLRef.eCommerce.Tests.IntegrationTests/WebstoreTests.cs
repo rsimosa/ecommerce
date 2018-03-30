@@ -94,6 +94,10 @@ namespace DPLref.eCommerce.Tests.IntegrationTests
             var context = new AmbientContext() { SellerId = 1 };
             var webStoreCatalogManager = GetManager<IWebStoreCatalogManager>(context);
             var response = webStoreCatalogManager.ShowProduct(2, 1003);
+
+            // normalize decimal percision - SQL Server and Sqlite behave differently
+            response.Product.Price = response.Product.Price + 0.00M;
+
             string responseJson = StringUtilities.DataContractToJson(response);
             string expectedJson = StringUtilities.DataContractToJson(WebstoreResponses.ProductResponse);
 

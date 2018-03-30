@@ -138,9 +138,6 @@ namespace DPLRef.eCommerce.Database
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(result.Error);
                 Console.ResetColor();
-#if DEBUG
-                Console.ReadLine();
-#endif
                 return -1;
             }
 
@@ -154,6 +151,7 @@ namespace DPLRef.eCommerce.Database
             Console.WriteLine("Success!");
             Console.ResetColor();
 
+            Console.WriteLine("press enter to exit");
             Console.ReadLine();
 
             return 0;
