@@ -3,15 +3,8 @@ using DPLRef.eCommerce.Accessors.Catalog;
 using DPLRef.eCommerce.Accessors.DataTransferObjects;
 using DPLRef.eCommerce.Common.Contracts;
 using DPLRef.eCommerce.Utilities;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Transactions;
-using System.IO;
-using Microsoft.Extensions.Configuration.Memory;
 using DPLRef.eCommerce.Accessors.EntityFramework;
 using DPLRef.eCommerce.Accessors.Sales;
 using DPLRef.eCommerce.Accessors.Remittance;
@@ -22,28 +15,13 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
     [TestClass]
     public abstract class DbTestAccessorBase
     {
-        public IConfigurationRoot Configuration { get; set; }
-
         public DbTestAccessorBase()
         {
-            var source = new MemoryConfigurationSource();
-            source.InitialData = 
-                new List<KeyValuePair<string, string>>
-                    { };
-
-            var builder = new ConfigurationBuilder();
-            builder.Add(source);
-            Configuration = builder.Build();
         }
         
         [TestInitialize()]
         public void Init()
         {
-            var builder = new ConfigurationBuilder()                 
-                .AddEnvironmentVariables();
-
-            Configuration = builder.Build();
-
             CreateGlobalContext();            
         }
 
