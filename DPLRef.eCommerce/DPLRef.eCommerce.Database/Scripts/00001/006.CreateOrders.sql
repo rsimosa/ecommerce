@@ -29,7 +29,8 @@
 	Notes nvarchar(200) null,
 	SellerId int not null,
 	CatalogId int not null,
-	[Status] int not null
+	[Status] bigint
+	not null
 )
  
 ALTER TABLE [dbo].Orders

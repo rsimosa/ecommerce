@@ -8,6 +8,7 @@ using System;
 using DPLRef.eCommerce.Accessors.EntityFramework;
 using DPLRef.eCommerce.Accessors.Sales;
 using DPLRef.eCommerce.Accessors.Remittance;
+using System.Transactions;
 
 namespace DPLRef.eCommerce.Tests.AccessorTests
 {
@@ -18,11 +19,11 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
         public DbTestAccessorBase()
         {
         }
-        
+
         [TestInitialize()]
         public void Init()
         {
-            CreateGlobalContext();            
+            CreateGlobalContext();
         }
 
         [TestCleanup()]
