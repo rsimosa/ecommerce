@@ -15,7 +15,8 @@ namespace DPLRef.eCommerce.Accessors
     {
         private UtilityFactory _utilityFactory;
 
-        public AccessorFactory(AmbientContext context, UtilityFactory utilityFactory) : base(context)
+        public AccessorFactory(AmbientContext context, UtilityFactory utilityFactory) 
+            : base(context)
         {
             // NOTE: this is here to ensure the factories from the Manager are propogated down to the other factories 
             _utilityFactory = utilityFactory ?? new UtilityFactory(Context);
@@ -41,6 +42,13 @@ namespace DPLRef.eCommerce.Accessors
             _utilityFactory = utilityFactory ?? _utilityFactory;
 
             T result = base.GetInstanceForType<T>();
+
+
+            if (_utilityFactory == null)
+            {
+                _utilityFactory = new UtilityFactory(Context);
+            }
+
 
             // Configure the context if the result is not a mock
             if (result is AccessorBase)

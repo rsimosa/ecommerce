@@ -26,7 +26,7 @@ namespace DPLRef.eCommerce.Engines
             AddType<IOrderValidationEngine>(typeof(ValidationEngine));
             AddType<IRemittanceCalculationEngine>(typeof(RemittanceCalculationEngine));
         }
-
+        
         public T CreateEngine<T>() where T : class
         {
             return CreateEngine<T>(null, null);
@@ -38,6 +38,17 @@ namespace DPLRef.eCommerce.Engines
             _utilityFactory = utilityFactory ?? _utilityFactory;
 
             T result = GetInstanceForType<T>();
+
+
+            if (_utilityFactory == null)
+            {
+                _utilityFactory = new UtilityFactory(Context);
+            }
+
+            if (_accessorFactory == null)
+            {
+                _accessorFactory = new AccessorFactory(Context, _utilityFactory);
+            }
 
             // configure the context and the accessor factory if the result is not a mock
             if (result is EngineBase)

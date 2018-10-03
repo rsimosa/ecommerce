@@ -19,8 +19,19 @@ namespace DPLRef.eCommerce.Managers
 {
     public class ManagerFactory : FactoryBase
     {
-        public ManagerFactory(AmbientContext context) : base(context)
+        private AccessorFactory _accessorFactory;
+        private UtilityFactory _utilityFactory;
+        private EngineFactory _engineFactory;
+
+        public ManagerFactory(AmbientContext context, EngineFactory engineFactory = null, AccessorFactory accessorFactory = null, UtilityFactory utilityFactory = null) 
+            : base(context)
         {
+
+            // NOTE: this is here to ensure the factories from the Manager are propogated down to the other factories 
+            _utilityFactory = utilityFactory ?? new UtilityFactory(Context);
+            _accessorFactory = accessorFactory ?? new AccessorFactory(Context, _utilityFactory);
+            _engineFactory = engineFactory ?? new EngineFactory(Context, _accessorFactory, _utilityFactory);
+
             AddType<IWebStoreCartManager>(typeof(OrderManager));
             AddType<IWebStoreOrderManager>(typeof(OrderManager));
             AddType<IReturnsManager>(typeof(OrderManager));
@@ -41,24 +52,28 @@ namespace DPLRef.eCommerce.Managers
         public T CreateManager<T>(
             EngineFactory engineFactory, AccessorFactory accessorFactory, UtilityFactory utilityFactory) where T : class
         {
+            _engineFactory = engineFactory ?? _engineFactory;
+            _accessorFactory = accessorFactory ?? _accessorFactory;
+            _utilityFactory = utilityFactory ?? _utilityFactory;
+
             if (Context == null)
             {
                 throw new InvalidOperationException("Context cannot be null");
             }
 
-            if (utilityFactory == null)
+            if (_utilityFactory == null)
             {
-                utilityFactory = new UtilityFactory(Context);
+                _utilityFactory = new UtilityFactory(Context);
             }
 
             if (accessorFactory == null)
             {
-                accessorFactory = new AccessorFactory(Context, utilityFactory);
+                _accessorFactory = new AccessorFactory(Context, _utilityFactory);
             }
 
             if (engineFactory == null)
             {
-                engineFactory = new EngineFactory(Context, accessorFactory, utilityFactory);
+                _engineFactory = new EngineFactory(Context, _accessorFactory, _utilityFactory);
             }
 
             T result = GetInstanceForType<T>();
@@ -66,9 +81,9 @@ namespace DPLRef.eCommerce.Managers
             if (result is ManagerBase)
             {
                 (result as ManagerBase).Context = Context;
-                (result as ManagerBase).EngineFactory = engineFactory;
-                (result as ManagerBase).AccessorFactory = accessorFactory;
-                (result as ManagerBase).UtilityFactory = utilityFactory;
+                (result as ManagerBase).EngineFactory = _engineFactory;
+                (result as ManagerBase).AccessorFactory = _accessorFactory;
+                (result as ManagerBase).UtilityFactory = _utilityFactory;
             }
             else
                 // mocking of the manager factory is not supported so every result should implement ManagerBase

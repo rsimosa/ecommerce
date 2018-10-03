@@ -299,3 +299,5 @@ TempFiles
 
 ._*.docx
 ._*.pptx
+
+.vscode
