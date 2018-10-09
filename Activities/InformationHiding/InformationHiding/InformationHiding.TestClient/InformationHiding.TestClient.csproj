@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InformationHiding.Dates\InformationHiding.Dates.csproj" />
+    <ProjectReference Include="..\InformationHiding.Math\InformationHiding.Math.csproj" />
+    <ProjectReference Include="..\InformationHiding.Parsing\InformationHiding.Parsing.csproj" />
+    <ProjectReference Include="..\InformationHiding.Strings\InformationHiding.Strings.csproj" />
+  </ItemGroup>
+
+</Project>
