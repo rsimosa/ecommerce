@@ -22,7 +22,7 @@ namespace InformationHiding.TestClient
             int rem;
             string newDate;
 
-            Console.WriteLine("Test 1: 10/10/2018 and 10/12/2018 Return 10/15/2018");
+            Console.WriteLine("Test 1: 10/10/2018 and 10/12/2018 Return 10/13/2018");
             Console.WriteLine("Hit ENTER to run the test");
             Console.ReadLine();
 
@@ -39,19 +39,20 @@ namespace InformationHiding.TestClient
                 secondDate = dow.GetDayOfWeek("10/12/2018");
                 Debug.Assert(secondDate == "Friday");
 
-                num = sc.GetCharactersInString(firstDate);
-                Debug.Assert(num == 9);
+                num = sc.CountVowelsInString(firstDate);
+                Debug.Assert(num == 3);
 
-                denom = sc.GetCharactersInString(secondDate);
-                Debug.Assert(denom == 6);
+                denom = sc.CountVowelsInString(secondDate);
+                Debug.Assert(denom == 2);
 
                 rem = r.FindRemainder(num, denom);
-                Debug.Assert(rem == 3);
+                Debug.Assert(rem == 1);
 
                 newDate = dfo.GetDateFromOffset("10/12/2018", rem);
-                Debug.Assert(newDate == "10/15/2018");
+                Debug.Assert(newDate == "10/13/2018");
 
-                Console.WriteLine($"New date: {newDate}");
+                Console.WriteLine($"WooHoo!!! New date: '{newDate}'");
+                Console.WriteLine();
             }
             catch (Exception e)
             {
@@ -61,6 +62,7 @@ namespace InformationHiding.TestClient
 
 
             // Test 2
+            Console.ReadLine();
             Console.WriteLine("Test 2: Let's test some edge cases");
             Console.WriteLine();
 
@@ -74,7 +76,7 @@ namespace InformationHiding.TestClient
 
                 // Passing an empty string
                 var result = dow.GetDayOfWeek("");
-                Console.WriteLine($"Passing an empty string for the date returns {result}");
+                Console.WriteLine($"Passing an empty string for the date returns '{result}'");
                 Console.WriteLine();
             }
             catch (Exception e)
@@ -86,14 +88,36 @@ namespace InformationHiding.TestClient
             // String Character Tests
             try
             {
+                Console.ReadLine();
                 Console.WriteLine("Hit ENTER to test string characters by passing a null...");
                 Console.ReadLine();
 
                 sc = new StringCharacterService();
 
                 // Passing a null value
-                var result = sc.GetCharactersInString(null);
+                var result = sc.CountVowelsInString(null);
                 Console.WriteLine($"Passing null value for the string returns {result}");
+                Console.WriteLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("BOOM!!! Exception encountered...");
+                Console.WriteLine(e);
+            }
+
+
+            try
+            {
+                Console.ReadLine();
+                Console.WriteLine("Hit ENTER to test string characters by passing a mixed-case string...");
+                Console.ReadLine();
+
+                sc = new StringCharacterService();
+
+                // Passing a null value
+                var result = sc.CountVowelsInString("AaBbCcDdEe");
+                Debug.Assert(result == 4);
+                Console.WriteLine($"Passing 'AaBbCcDdEe' value for the string returns {result}");
                 Console.WriteLine();
             }
             catch (Exception e)
@@ -105,6 +129,7 @@ namespace InformationHiding.TestClient
             // Math Tests
             try
             {
+                Console.ReadLine();
                 Console.WriteLine("Hit ENTER to test math by passing 0 for denominator...");
                 Console.ReadLine();
 
@@ -124,6 +149,7 @@ namespace InformationHiding.TestClient
             // Date Tests
             try
             {
+                Console.ReadLine();
                 Console.WriteLine("Hit ENTER to test date by passing an invalid date string...");
                 Console.ReadLine();
 
@@ -131,7 +157,7 @@ namespace InformationHiding.TestClient
 
                 // Passing invalid string for date
                 var result = dfo.GetDateFromOffset("blah", 0);
-                Console.WriteLine($"Passing invalid date string returns {result}");
+                Console.WriteLine($"Passing invalid date string returns '{result}'");
                 Console.WriteLine();
             }
             catch (Exception e)
@@ -140,7 +166,7 @@ namespace InformationHiding.TestClient
                 Console.WriteLine(e);
             }
 
-            Console.WriteLine("Hit ENTER to quit");
+            Console.WriteLine("All Done! Hit ENTER to quit");
             Console.ReadLine();
         }
     }
