@@ -3,6 +3,7 @@ using DPLRef.eCommerce.Managers;
 using DPLRef.eCommerce.Utilities;
 using System;
 using System.Threading;
+using DPLRef.eCommerce.Common.Contracts;
 
 namespace DPLRef.eCommerce.Service.Notifications
 {
@@ -14,19 +15,20 @@ namespace DPLRef.eCommerce.Service.Notifications
 
             while (true)
             {
-                var utilityFactory = new Utilities.UtilityFactory(new Common.Contracts.AmbientContext());
+                var utilityFactory = new UtilityFactory(new AmbientContext());
                 var asyncUtility = utilityFactory.CreateUtility<IAsyncUtility>();
                 var item = asyncUtility.CheckForNewItem();
                 if (item != null)
                 {
-                    var managerFactory = new ManagerFactory(new Common.Contracts.AmbientContext());
+                    // If the queued message contains a Context then pass it along instead of creating a new one
+                    var managerFactory = new ManagerFactory(item.AmbientContext ?? new AmbientContext()); 
                     var notificationManager = managerFactory.CreateManager<INotificationManager>();
 
-                    if (item.EventType == Common.Contracts.AsyncEventTypes.OrderSubmitted)
+                    if (item.EventType == AsyncEventTypes.OrderSubmitted)
                     {
                         notificationManager.SendNewOrderNotices(item.EventId);
                     }
-                    if (item.EventType == Common.Contracts.AsyncEventTypes.OrderShipped)
+                    if (item.EventType == AsyncEventTypes.OrderShipped)
                     {
                         notificationManager.SendOrderFulfillmentNotices(item.EventId);
                     }

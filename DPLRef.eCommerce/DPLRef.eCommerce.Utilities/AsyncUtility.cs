@@ -29,6 +29,7 @@ namespace DPLRef.eCommerce.Utilities
             var newFile = Path.Combine(QueueDir().FullName, $"{Guid.NewGuid().ToString()}.json");
             var json = JsonConvert.SerializeObject(new AsyncQueueItem()
             {
+                AmbientContext = Context, // <== passing along the ambient context
                 EventType = eventType,
                 EventId = eventId
             });
