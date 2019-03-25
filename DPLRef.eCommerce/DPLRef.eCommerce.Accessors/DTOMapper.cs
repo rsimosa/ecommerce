@@ -77,7 +77,7 @@ namespace DPLRef.eCommerce.Accessors
                            .ForMember(a => a.ProductName, b => b.Ignore());
 
                         cfg.CreateMap<EntityFramework.Cart, Cart>()
-                        .ForMember(a => a.BillingAddress, b => b.ResolveUsing(c => new Address
+                        .ForMember(a => a.BillingAddress, b => b.MapFrom(c => new Address
                         {
                             EmailAddress = c.BillingEmailAddress,
                             First = c.BillingFirst,
@@ -88,7 +88,7 @@ namespace DPLRef.eCommerce.Accessors
                             Postal = c.BillingPostal,
                             State = c.BillingState,
                         }))
-                        .ForMember(a => a.ShippingAddress, b => b.ResolveUsing(c => new Address
+                        .ForMember(a => a.ShippingAddress, b => b.MapFrom(c => new Address
                         {
                             EmailAddress = c.ShippingEmailAddress,
                             First = c.ShippingFirst,
