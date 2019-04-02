@@ -11,7 +11,8 @@ Contributors
 	Branden Barber
 	Ceren Kaplan
 	Zach Lannin
-
+	Jesse Temple
+	
 https://dontpaniclabs.com/education
 
 ###############################################################################
@@ -39,10 +40,10 @@ variables through windows configuration you will need to restart Visual Studio
 after setting the environment variables.
 
 Environment Variables Database
-	Note, if use must specify a eCommerceDatabase environment variable or a 
-	eCommerceDatabaseSqlite environment variable. If you do not specify either
-	the system will run run. The eCommerceDatabase takes priority over 
-	eCommerceDatabaseSqlite. 
+	Note, you can configure the database using the eCommerceDatabase environment 
+	variable or a the eCommerceDatabaseSqlite environment variable. If you do 
+	not specify either the system will run run. The eCommerceDatabase takes 
+	priority over eCommerceDatabaseSqlite. 
 
 Mac Notes
 	To set your environment variable on a Mac, you need to update your 
@@ -68,7 +69,7 @@ assignment to get you started.
 1. 	Get the reference implementation building and running.
 2. 	Make sure all unit tests pass before you start.
 3. 	In the 3rdParty folder there is a USATaxer library project that contains 
-	a very simple tax calculation library. Build this project. That will created
+	a very simple tax calculation library. Build this project. That will create
 	a USATaxer.dll.
 4.	Copy that dll to the root of the eCommerce solution. Add a reference to it
 	from the Accessors project.
