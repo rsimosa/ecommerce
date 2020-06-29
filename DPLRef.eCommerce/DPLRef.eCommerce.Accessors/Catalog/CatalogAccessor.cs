@@ -167,5 +167,49 @@ namespace DPLRef.eCommerce.Accessors.Catalog
                 }
             }
         }
+
+        public Product[] AllProductsInRange(decimal low, decimal high)
+        {
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
+            {
+                var dbProducts = db.Products.Where(p => p.Price > low && p.Price < high);
+                return dbProducts.ProjectTo<Product>(DTOMapper.Configuration).ToArray();
+            }
+        }
+
+        public Product[] AllProductsFromSupplier(string supplierName)
+        {
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
+            {
+                return db.Products.Where(p => p.SupplierName == supplierName)
+                    .ProjectTo<Product>(DTOMapper.Configuration).ToArray();
+            }
+        }
+
+        public ProductsBySupplierItem[] ProductsBySupplier()
+        {
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
+            {
+                return (from p in db.Products
+                        group p by p.SupplierName
+                        into newGroup
+                        select new ProductsBySupplierItem()
+                        {
+                            Supplier = newGroup.Key,
+                            Count = newGroup.Count()
+                        }).ToArray();
+            }
+        }
+
+        public void UpdatePrice(int id, decimal price)
+        {
+            using (var db = eCommerce.Accessors.EntityFramework.eCommerceDbContext.Create())
+            {
+                var product = db.Products.First(p => p.Id == id);
+                product.Price = price;
+                db.SaveChanges();
+
+            } 
+        }
     }
 }

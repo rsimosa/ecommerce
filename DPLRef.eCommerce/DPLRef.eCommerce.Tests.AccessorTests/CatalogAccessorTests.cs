@@ -5,6 +5,7 @@ using DPLRef.eCommerce.Common.Contracts;
 using DPLRef.eCommerce.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace DPLRef.eCommerce.Tests.AccessorTests
 {
@@ -281,6 +282,62 @@ namespace DPLRef.eCommerce.Tests.AccessorTests
             var saved = CreateProduct(catalog);
             var accessor = CreateCatalogAccessor();
             accessor.SaveProduct(-1, saved);
+        }
+
+        #endregion
+
+        #region newTest
+
+        [TestMethod]
+        [TestCategory("Accessor Tests")]
+        public void CatalogAccessor_Product_AllProductsInRange()
+        {
+            var catalog = CreateCatalogAccessor();
+            var result = catalog.AllProductsInRange(10.00m, 1000.00m);
+            Assert.IsTrue(result.Length == 56);
+            result = catalog.AllProductsInRange(99.00m, 101.00m);
+            Assert.IsTrue(result.Length == 0);
+        }
+
+        [TestMethod]
+        [TestCategory("Accessor Tests")]
+        public void CatalogAccessor_Product_AllProductsFromSupplier()
+        {
+            var catalog = CreateCatalogAccessor();
+            var result = catalog.AllProductsFromSupplier("Russ");
+            Assert.IsTrue(result.Length == 100);
+        }
+
+        [TestMethod]
+        [TestCategory("Accessor Tests")]
+        public void CatalogAccessor_Product_ProductsBySupplier()
+        {
+            var catalog = CreateCatalogAccessor();
+            var result = catalog.ProductsBySupplier();
+            Assert.IsTrue(result.Length > 1);
+        }
+
+
+        [TestMethod]
+        [TestCategory("Accessor Tests")]
+        public void CatalogAccessor_Product_UpdatePrice()
+        {
+            //var test = new List<Product>();
+            //var catalog = CreateCatalogAccessor();
+
+            //test.Add(new Product("UNIT TEST PRODUCT", 1, true, true, 1.5m));
+
+            //catalog.UpdatePrice(1, 100.00m);
+            //Assert.AreEqual(test, 100.00m);
+
+
+            var catalog = CreateCatalogAccessor();
+            var oldPrice = catalog.FindProduct(15).Price;
+            catalog.UpdatePrice(15, 100000.00m);
+            Assert.AreEqual(catalog.FindProduct(15).Price, 100000.00m);
+            catalog.UpdatePrice(15, oldPrice);
+            Assert.AreEqual(catalog.FindProduct(15).Price, oldPrice);
+
         }
 
         #endregion

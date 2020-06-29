@@ -15,6 +15,16 @@ namespace DPLRef.eCommerce.Tests.Mocks
 
         }
 
+        public Product[] AllProductsFromSupplier(string supplierName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product[] AllProductsInRange(decimal low, decimal high)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteCatalog(int id)
         {
             var catalog = MockData.Catalogs.FirstOrDefault(c => c.Id == id);
@@ -49,6 +59,11 @@ namespace DPLRef.eCommerce.Tests.Mocks
         public Product FindProduct(int id)
         {
             return MockData.Products.FirstOrDefault(p => p.Id == id);
+        }
+
+        public ProductsBySupplierItem[] ProductsBySupplier()
+        {
+            throw new NotImplementedException();
         }
 
         public WebStoreCatalog SaveCatalog(WebStoreCatalog catalog)
@@ -91,6 +106,11 @@ namespace DPLRef.eCommerce.Tests.Mocks
         public string TestMe(string input)
         {
             return input;
+        }
+
+        public void UpdatePrice(int id, decimal price)
+        {
+            throw new NotImplementedException();
         }
     }
 }

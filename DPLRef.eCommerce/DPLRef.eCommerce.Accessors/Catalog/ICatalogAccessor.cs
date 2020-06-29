@@ -22,5 +22,13 @@ namespace DPLRef.eCommerce.Accessors.Catalog
         Product SaveProduct(int catalogId, Product product);
 
         void DeleteProduct(int catalogId, int id);
+
+        Product[] AllProductsInRange(decimal low, decimal high);
+
+        Product[] AllProductsFromSupplier(string supplierName);
+
+        ProductsBySupplierItem[] ProductsBySupplier();
+
+        void UpdatePrice(int id, decimal price);
     }
 }
